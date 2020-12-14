@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>When in Rome 1: Accounting for Taste - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">When in Rome 1: Accounting for Taste</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_19.html">Previous</a><br><a href="source_21.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Chapter 6 - The Office </b>
+<br>
+
+<br>
+Understand &quot;<font color=#000080>girl</font>&quot; or &quot;<font color=#000080>woman</font>&quot; as a woman.
+<br>
+
+<br>
+Esther is a woman. Understand &quot;<font color=#000080>milligan</font>&quot; or &quot;<font color=#000080>miss milligan</font>&quot; as Esther. The description of Esther is &quot;<font color=#000080>She's a tall, shapely girl; taken on figure and clothes alone she'd be too perfected to seem real, but there is also an edge of exasperation: life has not been quite to her taste. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>She reminds you a little of a nurse you knew back in the war.</font>&quot; The description of Esther's hair is &quot;<font color=#000080>Despite her attempts to arrange them, there are always at least two curls escaping from their assigned places, sometimes getting into her eyes.</font>&quot; The description of Esther's eyes is &quot;<font color=#000080>Pale blue and unreadable.</font>&quot;
+<br>
+
+<br>
+<font color=#404040>[Understand &quot;ask Esther <font color=#404040>[text</font>]&quot;<font color=#000080> as a mistake (</font>&quot;Not really an option just now.&quot;<font color=#000080>). Understand </font>&quot;tell Esther <font color=#404040>[text</font>]&quot;<font color=#000080> as a mistake (</font>&quot;Not really an option just now.&quot;<font color=#000080>). Understand </font>&quot;talk to esther <font color=#404040>[text</font>]&quot;<font color=#000080> as a mistake (</font>&quot;Not really an option just now.&quot;<font color=#000080>).]
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Understand </font>&quot;miss milligan&quot;<font color=#000080> or </font>&quot;milligan&quot;<font color=#000080> or </font>&quot;girl&quot;<font color=#000080> or </font>&quot;woman&quot;<font color=#000080> or </font>&quot;esther milligan&quot;<font color=#000080> or </font>&quot;miss esther milligan&quot;<font color=#000080> or </font>&quot;esther&quot;<font color=#000080> as </font>&quot;<font color=#404040>[esther</font>]&quot;<font color=#000080>.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Before reading a command:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;remove properties.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>After reading a command: 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;while the player's command includes </font>&quot;the&quot;<font color=#000080>, cut the matched text; <font color=#404040><sup><a href="#note1">[1]</a></sup></font>
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;while the player's command includes </font>&quot;a&quot;<font color=#000080>, cut the matched text;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the player's command includes </font>&quot;<font color=#404040>[thugs</font>]&quot;<font color=#000080>, replace the matched text with </font>&quot;thug&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the player's command includes </font>&quot;<font color=#404040>[esther</font>]&quot;<font color=#000080>, replace the matched text with </font>&quot;girl&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the player's command includes </font>&quot;ask girl to&quot;<font color=#000080>, replace the matched text with </font>&quot;girl,&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the player's command includes </font>&quot;tell girl to&quot;<font color=#000080>, replace the matched text with </font>&quot;girl,&quot;<font color=#000080>; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the player's command includes </font>&quot;ask thug to&quot;<font color=#000080>, replace the matched text with </font>&quot;thug,&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the player's command includes </font>&quot;tell thug to&quot;<font color=#000080>, replace the matched text with </font>&quot;thug,&quot;<font color=#000080>. [There may eventually be a classier way to do this, but for now we can divert ask (person) to (do something) to the correct command form by changing the command before it reaches the parser.]
+<br>
+</font><font color=#000080> 
+<br>
+</font><font color=#000080>Understand the command </font>&quot;grab&quot;<font color=#000080> as </font>&quot;take&quot;<font color=#000080>.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Understand </font>&quot;call <font color=#404040>[any thing</font>]&quot;<font color=#000080> or </font>&quot;summon <font color=#404040>[any thing</font>]&quot;<font color=#000080> or </font>&quot;shout to/for/at <font color=#404040>[any thing</font>]&quot;<font color=#000080> or </font>&quot;call to/for <font color=#404040>[any thing</font>]&quot;<font color=#000080> or </font>&quot;yell to/for/at <font color=#404040>[any thing</font>]&quot;<font color=#000080> as summoning. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Summoning is an action applying to one thing. Summoning is useless action.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Carry out summoning: say </font>&quot;There is no answer.&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Instead of summoning a timid creature: if the creature is visible, say </font>&quot;<font color=#404040>[The creature</font>] flinches, covering its ears.&quot;<font color=#000080>; otherwise continue the action.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Set-like Hallway is a room. </font>&quot;<font color=#404040>[if the Hallway is unvisited</font>]Your new company, which claims to belong to a private investigation firm, in case anyone wonders who you are and why officers of the law need to visit from time to time. The Alien Protocol men -- you've come to call them AP in your head -- arranged the whole thing with such efficiency that you wonder whether you've underestimated military intelligence all these years.
+<br>
+
+<br>
+This area has been decorated<font color=#404040>[otherwise</font>]Decorated<font color=#404040>[end if</font>], over the last few days, by Esther, whose idea of investigators comes largely from 'Charlie Wild, Private Detective.' Every time you walk through here you half expect to come nose-to-nose with an advertisement for Wildroot Hair Cream Oil, Charlie Wild's corporate sponsor.
+<br>
+
+<br>
+Just inside is your office.&quot;<font color=#000080>  
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Instead of going nowhere from the Hallway, say </font>&quot;In seems to be the operative direction here.&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>After taking the salami for the first time:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;You acquire the salami. 'Esther, you shouldn't have,' you shout, divesting it of its bow. It has about the size, if not the heft, of a policeman's cosh.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+'It wasn't me, sir,' she yells. 'It's from the head of the Alien Protocol office, because of your new assignment as an independent agent.'
+<br>
+
+<br>
+Oh. 'Did they get you anything?'
+<br>
+
+<br>
+'No, they did not.' The typewriter resumes, more loudly than ever.&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Instead of eating the salami:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;It's a bit early in the morning for this kind of meal.&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Instead of waiting in the Set-like Hallway: say </font>&quot;You try postponing the inevitable, but the critter does await you inside.&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Office on Floor Fifty-One is inside from Set-like Hallway. </font>&quot;Your office<font color=#404040>[if the number of scenery things in the office is less than three</font>]. Recent remodeling efforts have left it positively spacious, with only <font color=#404040>[the list of scenery things in the office</font>] as permanent features<font color=#404040>[otherwise</font>]. It's cramped, what with <font color=#404040>[the list of scenery things in the office</font>], but it's got a great view down Fifth Avenue<font color=#404040>[end if</font>].&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>After going to the Office:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;'Try not to get killed!' Esther shouts cheerily, as you go inside.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;try looking;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;From the strand dangling out of its mouth, you surmise the Thing has just eaten the hooked rug your mother gave you.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+'Glorp?' it inquires.&quot;<font color=#000080>; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end the game saying </font>&quot;To be continued&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The window is scenery in the office. Understand </font>&quot;view&quot;<font color=#000080> as the window. The description is </font>&quot;It is raining periodically and colder than it should be for this time of year; which had better clear up by this afternoon, because the Yankees are playing the Red Sox.&quot;<font color=#000080> Instead of searching the window, try examining the window. Before opening the window: say </font>&quot;In the normal course of things, windows on the fifty-first floor do not open.
+<br>
+
+<br>
+Your particular window does, of course, since the pods have to get out somehow, but the whole thing is rigged with machinery you can't control. You've heard rumors that your predecessor sent a pod out straight through the plate glass, hospitalizing ten people from the sidewalk below. Best not to meddle.&quot;<font color=#000080> instead.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The desk is scenery in the Office. It is a supporter. The description is </font>&quot;Grim, gun-metal grey, but quite sturdy, impervious to blows, and washable. All of these features have come in useful in your work.&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The chair is scenery in the Office. It is an enterable supporter. The description of the chair is </font>&quot;Made of slightly less sturdy matter than the desk, and therefore the fourth you have owned in the course of this job. You also used to have a potted cactus, but it got eaten, in an incident that did not end happily for anyone.&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The file drawer is scenery in the Office. It is a container. Understand </font>&quot;drawers&quot;<font color=#000080> or </font>&quot;cabinets&quot;<font color=#000080> or </font>&quot;cabinet&quot;<font color=#000080> as the drawer. A lot of paperwork is a thing. The file drawer is closed and openable. The autographed picture of Joe DiMaggio is on the desk. The description of the picture is </font>&quot;He's mid-swing, and the autograph is made out to you personally.&quot;<font color=#000080> Before printing the name of the file drawer: if the file drawer is damaged, say </font>&quot;severely dented&quot;<font color=#000080>.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>After opening the file drawer when the file drawer contains more than five things:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;You open the file drawer with a bit of struggle -- something in there is catching when you pull. But it finally comes open, and half-disgorges <font color=#404040>[a list of things in the file drawer</font>].&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The paperwork is fixed in place. Understand </font>&quot;files&quot;<font color=#000080> as paperwork. The paperwork is papery.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The description of the paperwork is </font>&quot;Copies of previously filed forms (mostly done by your predecessor), indexed by home-world.&quot;<font color=#000080> Understand </font>&quot;papers&quot;<font color=#000080> or </font>&quot;forms&quot;<font color=#000080> or </font>&quot;form&quot;<font color=#000080> as the paperwork. Instead of consulting the drawer about something: try consulting the paperwork about it.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Burying relates various things to various things. The verb to disguise (it disguises, they disguise, he is disguising) implies the burying relation.  
+<br>
+</font><font color=#000080> 
+<br>
+</font><font color=#000080>Understand </font>&quot;conceal <font color=#404040>[something</font>] in <font color=#404040>[something</font>]&quot;<font color=#000080> or </font>&quot;hide <font color=#404040>[something</font>] in <font color=#404040>[something</font>]&quot;<font color=#000080> or </font>&quot;bury <font color=#404040>[something</font>] in <font color=#404040>[something</font>]&quot;<font color=#000080> as hiding it in. Hiding it in is an action applying to two things. Check hiding it in: if the second noun is not a container, say </font>&quot;<font color=#404040>[The second noun</font>] will not conceal much.&quot;<font color=#000080> instead; if the second noun is not openable, say </font>&quot;<font color=#404040>[The second noun</font>] cannot be closed.&quot;<font color=#000080> instead; if the player does not carry the noun, try taking the noun; if the player does not carry the noun, stop the action. Carry out hiding it in: try inserting the noun into the second noun; if the noun is in the second noun and the second noun is openable, try closing the second noun. Hiding something in something is useless action.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Understand </font>&quot;dig in <font color=#404040>[something</font>]&quot;<font color=#000080> as digging. [Digging is an action applying to one thing.] Carry out digging: say </font>&quot;Pointless.&quot;<font color=#000080>
+<br>
+</font><font color=#000080> 
+<br>
+</font><font color=#000080>Understand </font>&quot;look up <font color=#404040>[moon</font>] in <font color=#404040>[something</font>]&quot;<font color=#000080> as researching in it about (with nouns reversed). Understand </font>&quot;consult <font color=#404040>[something</font>] on/about <font color=#404040>[moon</font>]&quot;<font color=#000080> as researching in it about. Understand </font>&quot;read about <font color=#404040>[moon</font>] in <font color=#404040>[something</font>]&quot;<font color=#000080> as researching in it about (with nouns reversed). Understand </font>&quot;read <font color=#404040>[moon</font>] in <font color=#404040>[something</font>]&quot;<font color=#000080> as researching in it about (with nouns reversed). Understand </font>&quot;look up <font color=#404040>[moon</font>]&quot;<font color=#000080> as researching vaguely.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Researching vaguely is an action applying to one moon. Check researching vaguely: say </font>&quot;You've no reference works handy that will apply to the present situation.&quot;<font color=#000080>  
+<br>
+</font><font color=#000080> 
+<br>
+</font><font color=#000080>Researching in it about is an action applying to one thing and one moon. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Carry out researching in it about: say </font>&quot;You find nothing of interest in <font color=#404040>[the noun</font>].&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The setup rules is a rulebook.   
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A setup rule (this is the tongue rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if food of creature is meaty, change tongue of creature to </font>&quot;sharp carnivore teeth&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if food of creature is wood-pulpy, change tongue of creature to </font>&quot;a long raspy tongue&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if food of creature is earthly, change tongue of creature to </font>&quot;a round pink tongue&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if food of creature is textile, change tongue of creature to </font>&quot;a forked tongue&quot;<font color=#000080>.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A setup rule (this is the claws rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the moon of the creature is Europa, change the claw of the creature to </font>&quot;flipper-tip&quot;<font color=#000080>.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A setup rule (this is the color-assignment rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature lies nearer than Luna, change the color of the creature to a random color between red and yellow;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature lies beyond Venus and creature lies nearer than Mars, change the color of the creature to a random color between yellow and cyan;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature lies beyond Luna and creature lies nearer than Saturn, change the color of the creature to a random color between green and purple;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature lies beyond  Jupiter, change the color of the creature to a random color between tan and grey;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the moon of the creature is Triton, change the color of the creature to grey. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>To say creature clothing:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature wears something
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;It is wearing <font color=#404040>[the list of things worn by the creature</font>]&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>Rule for writing a paragraph about the creature when the location is the Office:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;There's a collared <font color=#404040>[creature</font>] waiting.&quot;<font color=#000080>
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Rule for writing a paragraph about the creature: 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;Lurking in the opposite corner from you is a creature, about the size of a large dog, with <font color=#404040>[color of the creature</font>] &quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is scaly, say </font>&quot;scales. &quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is furry, say </font>&quot;fur. &quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is not furry and the creature is not scaly, say </font>&quot;skin. &quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature wears something
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;It is wearing <font color=#404040>[list of things worn by the creature</font>]. &quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature carries something, say </font>&quot;It is carrying <font color=#404040>[a list of things carried by the creature</font>]. &quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say paragraph break.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>Before listing nondescript items:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is marked for listing, change the creature to not marked for listing.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>Showing confusion at is an action applying to one thing.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Carry out the creature trying showing confusion at: do nothing.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Report the creature trying showing confusion at: 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] blinks at <font color=#404040>[the noun</font>] uncertainly.&quot;<font color=#000080> 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>Before a stupid creature trying playing with something when a random chance of 1 in 3 succeeds:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is hostile,
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say </font>&quot;<font color=#404040>[The creature</font>] watches you belligerently<font color=#404040>[if the carrying capacity of the creature &gt; 2</font>] with two of its <font color=#404040>[carrying capacity of the creature in words</font>] hands<font color=#404040>[end if</font>] on its hips.&quot;<font color=#000080> instead;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;otherwise say </font>&quot;<font color=#404040>[The creature</font>] scratches its head<font color=#404040>[if the carrying capacity of the creature &gt; 2</font>] with one of its <font color=#404040>[carrying capacity of the creature in words</font>] hands<font color=#404040>[end if</font>].&quot;<font color=#000080> instead.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Report a stupid creature trying wearing the socks:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>]<font color=#404040>[quickly</font>] puts on your socks -- one over each ear.&quot;<font color=#000080> instead.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>Report a creature trying wearing the fedora:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] dons the fedora<font color=#404040>[if the creature is smart</font>] and flicks the brim at you<font color=#404040>[end if</font>].&quot;<font color=#000080> instead.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Report a fast creature trying playing with something delicious:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the noun is undershorts, 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] darts its tongue out to <font color=#404040>[the noun</font>], sampling the flavor. Then it looks appalled and begins spluttering and spitting.&quot;<font color=#000080> instead;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;otherwise
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] darts its tongue out to <font color=#404040>[the noun</font>], sampling the flavor<font color=#404040>[if the creature is friendly</font>]. It gives you a shy look afterward, as though caught at some embarrassing practice<font color=#404040>[end if</font>].&quot;<font color=#000080> instead.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>To decide whether (item - a thing) outweighs strength:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the item is light, no;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the gravity of the creature is greater than fractional and the item is medium-weight, no;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the gravity of the creature is greater than Marslike, no;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;yes.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080></font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><p><i>Note</i><p>
+<A name="note1"><font color=#404040>[1].  Largely an expedient so that more topics will match in conversation, even if the player has used articles.</font><p>
+</font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

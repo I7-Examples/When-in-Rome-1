@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>When in Rome 1: Accounting for Taste - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">When in Rome 1: Accounting for Taste</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_15.html">Previous</a><br><a href="source_17.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 5 - Scripted behavior</b>
+<br>
+<font color=#404040>[Elsewhere we will experiment with more goal-seeking characters, but in this scene we have the girl follow a scripted set of behavior except when the player's actions disrupt the flow. To do this, we make a table of rules for her to follow and blank out lines one at a time as these are completed.</font>]
+<br>
+
+<br>
+<b>Table of Scripted Actions</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>task</u></td></tr>
+<tr><td halign="left" valign="top">apology for trouble rule</td></tr>
+<tr><td halign="left" valign="top">attempt to get handbag rule</td></tr>
+<tr><td halign="left" valign="top">noticing frantic creature rule</td></tr>
+<tr><td halign="left" valign="top">looking around pointlessly rule</td></tr>
+<tr><td halign="left" valign="top">comes in peace rule</td></tr>
+<tr><td halign="left" valign="top">initial siren rule</td></tr>
+<tr><td halign="left" valign="top">violence sometimes helps rule</td></tr>
+</table>
+<br>
+This is the apology for trouble rule:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the girl is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'I'm so sorry,' says the girl. 'I see now that it wasn't your dog at all. And it was nice of you to try to rescue me.'
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'Suicidal might be more accurate.'</font>&quot;
+<br>
+
+<br>
+This is the attempt to get handbag rule:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the girl can see the handbag and the girl does not carry the handbag, try the girl trying taking the handbag.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of the girl trying taking the handbag when the handbag is delicious and the creature has the handbag:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The girl] reaches for [the handbag], but [the creature] shrieks horribly and pounds on your head and blocks off your air supply.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'May I suggest,' you whisper hoarsely, 'that getting this thing free of me might be a more immediate concern?'</font>&quot;
+<br>
+
+<br>
+Report the girl trying taking the handbag:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The girl] reacquires the handbag, looking satisfied. 'Well, at least that's taken care of.' You stare at her indignantly as small but strong fingers grip your throat.</font>&quot; instead.
+<br>
+
+<br>
+This is the noticing frantic creature rule:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'It's waving at me,' she says, glancing past you at the thing on your back. 'It keeps gnashing its teeth and pointing to its belly.'
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'Must be ulcers,' you remark.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'You think?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Could you find something more to feed it, please?' you say. 'Maybe it could be lured away with snacks.'</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the girl is passive.
+<br>
+
+<br>
+This is the looking around pointlessly rule:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the girl is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The girl] circles you, considering the situation. 'It's very strong,' she comments unhelpfully.</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+This is the comes in peace rule:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the girl is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'Maybe it's not hostile,' says the girl. 'Maybe it comes in peace, and its message is just misunderstood.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'It seems to be trying to kill me,' you point out, in a hoarse voice.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Oh, it's not trying very hard,' she says. Which is not a great consolation.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'My sergeant was of the opinion,' you say, breathing with difficulty. 'That once someone had. A gun pointed at you. It was past the time. To ask his intentions.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>She goes still. 'You were in Korea?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Italy,' you say. 'I'm not that young.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>She nods. 'Yes, of course. I should have guessed.'</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+This is the violence sometimes helps rule:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the girl trying attacking the creature.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+This is the initial siren rule:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the girl is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>Somewhere several hundred yards down the path there is a siren and flashing lights: the police and fire department do still exist, even if they are falling down on the job of containing mysterious [color of the creature] animals just at the moment.</font>&quot;
+<br>
+
+<br>
+Every turn during Getting handbag:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the girl is active
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repeat through the Table of Scripted Actions
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;follow task entry; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the girl is passive <font color=#404040>[which will happen if she succeeds in acting</font>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blank out the whole row;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;make no decision;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end repeat;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+
+<br>
+Every turn during Getting handbag:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the girl is active and a portable thing (called target) is in the location
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Strangulation is happening, say &quot;<font color=#000080>[The girl] [if a random chance of 1 in 2 succeeds]tries to pull the animal off you again, but it is causing more harm than help[otherwise]goes to the edge of the path and shouts for help, but no one hears[end if].</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise try the girl trying taking the target;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the girl is active.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying taking the key:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked] picks up the key. 'Really, I'm more afraid of a person getting this...'</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+ 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"></font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

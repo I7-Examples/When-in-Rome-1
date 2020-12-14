@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>When in Rome 1: Accounting for Taste - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">When in Rome 1: Accounting for Taste</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_14.html">Previous</a><br><a href="source_16.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 2 - A set of rules for having the girl act intelligently</b>
+<br>
+
+<br>
+<font color=#404040>[The purpose of this section is to equip the girl to pick things up intelligently before she needs to use them, open and close containers, and so on. It also has a mechanism for stringing together several non-player-character actions into single sentences. This is a fairly low-tech approach and there would be more sophisticated ways to do the same thing, but this will work for the time being.</font>]
+<br>
+
+<br>
+Before the girl trying inserting something into a closed openable container (called the receptacle):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying opening the receptacle.
+<br>
+
+<br>
+Before the girl trying going through a closed door (called impediment):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying opening the impediment.
+<br>
+
+<br>
+Before the girl trying entering a closed thing (called the receptacle):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying opening the receptacle.
+<br>
+
+<br>
+Before the girl trying exiting when the person asked is in a closed thing (called the receptacle):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying opening the receptacle.
+<br>
+
+<br>
+Before the girl trying searching a closed container (called the receptacle):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying opening the receptacle.
+<br>
+
+<br>
+Before the girl trying wearing something which is not carried by the person asked:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying taking the noun.
+<br>
+
+<br>
+Before the girl trying eating something which is not carried by the person asked:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying taking the noun.
+<br>
+
+<br>
+Before the girl trying giving something to someone when the noun is not carried by the person asked:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying taking the noun.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Before the girl trying throwing something at something when the noun is not carried by the person asked:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try the person asked trying taking the noun.
+<br>
+
+<br>
+A rule for reaching inside a closed openable container (called target):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the person reaching is not the person asked, make no decision;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the person reaching is not the player
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increment depth;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the person reaching trying opening the target;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+
+<br>
+To increment depth:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increase the action stack depth by 1;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increase the maximum action stack depth by 1.
+<br>
+
+<br>
+The action stack depth is a number that varies. The action stack depth is 0. <font color=#404040>[This is how deeply we've currently committed the character to go. In this extension, this won't be deeper than 2.</font>]
+<br>
+
+<br>
+The maximum action stack depth is a number that varies. The maximum action stack depth is 0. <font color=#404040>[This is the total number of actions we've stacked this turn, regardless of which one we're currently on.</font>]
+<br>
+
+<br>
+First every turn rule: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if Getting handbag is happening
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;change the action stack depth to 0; change the maximum action stack depth to 0; now every person is ignored; remove properties;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+
+<br>
+Report the girl trying opening something when the action stack depth is greater than 0:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;decrease the action stack depth by 1;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080> opens [the noun][continue]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stop the action.
+<br>
+
+<br>
+Report the girl trying taking something when the action stack depth is greater than 0:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;decrease the action stack depth by 1;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080> picks up [the noun][continue]</font>&quot;; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stop the action.
+<br>
+
+<br>
+Report the girl trying exiting when the maximum action stack depth is greater than 0:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked] gets out.</font>&quot; instead.
+<br>
+
+<br>
+Report the girl trying entering something when the maximum action stack depth is greater than 0:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked] gets in.</font>&quot; instead.
+<br>
+
+<br>
+Report the girl trying wearing something when the maximum action stack depth is greater than 0: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked] puts it on.</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Carry out the girl trying throwing something at something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the noun to the location of the person asked.
+<br>
+
+<br>
+A procedural rule: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the person asked is not the player
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore the block throwing at rule; ignore the futile to throw things at inanimate objects rule; ignore the check life property for throwing at rule;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+
+<br>
+Report the girl trying throwing something at something: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the maximum action stack depth is greater than 0, say &quot;<font color=#000080>[The person asked] throws it at [the second noun]. She misses by a mile.</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>[The girl] flings [the noun] at [the second noun], but misses profoundly.</font>&quot; instead.
+<br>
+
+<br>
+Report the girl trying throwing something at something for the first time: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the maximum action stack depth is greater than 0, say &quot;<font color=#000080>[The person asked] throws it at [the second noun], but doesn't even come close to hitting. </font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>[The girl] flings [the noun] at [the second noun], but misses profoundly. </font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'Sorry,' she says. 'Baseball isn't my game.'</font>&quot; instead.
+<br>
+
+<br>
+
+<br>
+Report the girl trying eating something when the maximum action stack depth is greater than 0:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked] eats it.</font>&quot; instead.
+<br>
+
+<br>
+Report the girl trying inserting something into something when the maximum action stack depth is greater than 0:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked] puts [the noun] inside.</font>&quot; instead.
+<br>
+
+<br>
+After printing the name of the girl (called the target human): 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the target human is the person asked
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;make the target human proper;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the target human is previously implicated;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+
+<br>
+To say continue:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the action stack depth is greater than 0, say &quot;<font color=#000080>,[run paragraph on]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>[if maximum action stack depth is greater than 1][optional comma][end if] and[run paragraph on]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+A thing can be previously implicated or ignored.
+<br>
+
+<br>
+Rule for printing the name of a previously implicated person when the action stack depth is not the maximum action stack depth:  
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;do nothing. 
+<br>
+
+<br>
+Unsuccessful attempt by someone trying doing something when maximum action stack depth is greater than action stack depth: do nothing.
+<br>
+
+<br>
+To say optional comma:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if using the serial comma option, say &quot;<font color=#000080>,</font>&quot;; otherwise do nothing.
+<br>
+
+<br>
+<font color=#404040>[Here it becomes useful to change Inform's idea of whether the girl has a proper name, in order to suppress articles under some circumstances.</font>]
+<br>
+
+<br>
+To make (target human - a person) proper:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(- Properize({target human}); -)
+<br>
+
+<br>
+To remove properties:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(- DeProperize(); -)
+<br>
+
+<br>
+Include (-
+<br>
+
+<br>
+Attribute exproper;
+<br>
+
+<br>
+<font color=#404040>[ Properize x;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;if (x hasnt proper) give x proper exproper;
+<br>
+</font><font color=#404040></font>];
+<br>
+
+<br>
+<font color=#404040>[ Deproperize x;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;objectloop(x has exproper) give x ~proper ~exproper;
+<br>
+</font><font color=#404040></font>];
+<br>
+ 
+<br>
+-)
+<br>
+
+<br>
+When Drinks ends: remove properties.
+<br>
+
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"></font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

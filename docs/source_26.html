@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>When in Rome 1: Accounting for Taste - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">When in Rome 1: Accounting for Taste</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_25.html">Previous</a><br><a href="source_27.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 2 - Major Plot Events </b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+To leave space:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say paragraph break; say paragraph break;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say paragraph break; say paragraph break.
+<br>
+
+<br>
+To simplify the game: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the current level is beginner
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let N be a random number between 1 and 2;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;choose row N in the Table of Alien Characteristics;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;choose a random row in the Table of Alien Characteristics; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while the difficulty entry is not the current level, choose a random row in the Table of Alien Characteristics; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change moon of the creature to moon entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change mood of the creature to attitude entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the odor sensitivity of the creature to nostrils entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change metabolism of the creature to feed time entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change gravity of the creature to the mass entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change speed of the creature to the dexterity entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change carrying capacity of the creature to the arms entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if carrying capacity of the creature is 0, change carrying capacity of the creature to 2;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change food of the creature to taste entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change intelligence of the creature to brain entry; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;follow the setup rules;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+When play begins: change the right hand status line to &quot;<font color=#000080>[time of day]</font>&quot;; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the time of day to 7:13 PM; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the left hand status line to &quot;<font color=#000080>Friday, May 21, 1954</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;simplify the game.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 
+<br>
+When play begins:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'Excuse me. You in the fedora,' says a female voice, behind you. 'Excuse me, is it really too difficult to keep your dog leashed?'
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'Yes,' you say, turning. 'I haven't got a dog.' 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The source of the aggravation is ten feet back on the path: hair between brown and honey, a Marilyn figure, and one of those tipped-up noses that makes a girl look always just a little annoyed.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>There is also a short [color of the creature] animal worrying at her skirt.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Whatever you call it, it [italic type]obviously[roman type] shouldn't be out unleashed.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'It isn't mine, and I don't know what it is.' You and the girl look at the creature again. In the fading twilight of Central Park, it's hard to see clearly, but you're more than ever certain that it does not belong to the genus [italic type]canis[roman type].</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;leave space;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pause the game; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;leave space;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;center &quot;<font color=#000080>[story title]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;center &quot;<font color=#000080>[story headline]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;center &quot;<font color=#000080>by [story author]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;leave space;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pause the game; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'Do you think it might be an escaped monkey?' you ask. There is a rip of stitches coming free: as a matter of theoretical interest, you wonder what the girl will do if the beast manages to tear off her skirt.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'I don't know!' she exclaims, swatting it with her handbag. 'But it's--'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>There's a flash of [color of the creature] arms. 'It took my bag!' she exclaims, blinking, as the thing runs off for the shelter of the nearest bridge. 'Your dog took my handbag!'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>You open your mouth to deny involvement, but she doesn't wait to hear it; instead she strips off her shoes and goes running after the thing. You watch her disappear into the darkness of the underpass; consider going home; then realize that you don't want to figure in this girl's mind as the man who set a rabid animal on her and then left her to her fate.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the creature to the player; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the fedora to the Underpass;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the handbag to the creature.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Getting handbag is a scene. Getting handbag begins when play begins. Getting handbag ends when the player does not carry the creature..
+<br>
+
+<br>
+When getting handbag ends:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;remove the creature from play.  
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Drinks is a scene. Drinks begins when Getting handbag ends. Drinks ends when Esther is dismissed.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>thank [someone]</font>&quot; as thanking. Thanking is an action applying to one thing. Carry out thanking: say &quot;<font color=#000080>Pointless.</font>&quot; Thanking someone is useless action.
+<br>
+
+<br>
+Instead of thanking the girl: say &quot;<font color=#000080>'You're not freed yet,' she points out.</font>&quot;
+<br>
+
+<br>
+Instead of thanking Esther:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'Thank you for joining me,' you manage, after a minute. 'I wasn't quite ready to go straight home after our little adventure.' 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>She smiles.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now esther is dismissed.
+<br>
+
+<br>
+When Drinks begins: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the handbag to Esther;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>When the fuss is over, the girl is still with you; now you look, she's older than you first thought, closer to your own age. She does look a bit rattled, though.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Can I buy you a drink?' you ask. 'Being throttled by a rabid animal always leaves me thirsty.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'I don't drink with strange men.' She is adjusting her hair with the aid of a tiny compact mirror, though it is obvious that some of those curls have never been orderly and never will.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>You hand her your business card. 'There, now we're introduced.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Perhaps the staid logo of Chase Manhattan soothes her, because she replies, 'I'm Esther. Milligan.' There's a stop between the first name and the last; if you were a more suspicious man you might think she made up that moniker. But then, why choose a name like Milligan?
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Do you drink martinis, Miss Milligan?'</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the heels are consumed, say &quot;<font color=#000080>[line break]'Only if I can buy new shoes on the way,' she says.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Macy's it is. And then drinks.'</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make scene break;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increase the time of day by 47 minutes; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now Esther wears the heels; <font color=#404040>[because she ought to be dressed just as the girl version of herself</font>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now Esther wears the dress;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move Esther to the Cafe;  
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the player to the Cafe.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Martini comment is a scene. Martini comment begins when Drinks is happening and the time since Drinks began is 3 minutes.
+<br>
+
+<br>
+When martini comment begins:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'I don't even like martinis,' Esther remarks.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'You could have mentioned it earlier.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'I didn't want to be rude,' she says.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'But now you do?'
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>She shrugs. 'I realized that if I posed as someone who likes martinis, I might have to go on carrying out the ruse indefinitely, and that would be its own punishment.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>In the back of your fogged brain, alarms go off. 'Indefinitely'? Yes, you must, must leave.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Seeing but misinterpreting your appalled expression, she says, 'Really, it's all right. Sometimes a martini is the only thing when your nerves are frayed. Like medicine.'</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+When martini comment ends:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat with item running through martini glasses
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove item from play;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>A woman comes and takes away the martini glasses. 'I think that's my cue,' says Esther.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now Esther is dismissed.
+<br>
+
+<br>
+Martini comment ends when the time since martini comment began is 2 minutes.
+<br>
+
+<br>
+When drinks ends:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>When you shake hands, her hand lingers in yours. Now is the point when you are allowed to ask to see her again -- for a moment you seriously consider it, but habit wins. 'It was a pleasure to know you, Miss Milligan,' you say firmly.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A tiny hurt look comes into her eyes, then turns into something more like shock. Then you realize that she's looking over your shoulder -- at four extremely bulky and belligerent men.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make scene break.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+To make scene break:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;center &quot;<font color=#000080>*****</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say line break;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pause the game;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say paragraph break;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say paragraph break;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say paragraph break.
+<br>
+
+<br>
+Limo Ride is a scene. Limo Ride begins when drinks ends. Limo Ride ends when the number of filled rows in the Table of Limo Banter is 0. 
+<br>
+
+<br>
+When Limo Ride begins: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'We're here from animal control,' says the largest one unconvincingly. 'We have a question about the animal you saw earlier. The escaped circus animal.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'That wasn't a circus animal,' says Esther. 'That was like something from another planet.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>This is evidently the wrong statement. There's a more complete silence than you've ever before heard in the city of New York. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The men look at one another. 'In the car,' says the large one, suddenly, and someone gives you a shove at the middle of the back. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>So much for going home and forgetting this entire incident.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the description of Esther to &quot;<font color=#000080>She sits back, fingers laced, ankles crossed in ladylike fashion. She looks less frightened than you feel. Perhaps she hasn't encountered some of the things Army intelligence does when it feels threatened; it seems more and more likely that that is what you're up against.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move Esther to the Limousine;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move thugs to the Limousine;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the player to the Limousine.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+When Limo Ride ends:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make scene break.
+<br>
+
+<br>
+Every turn during Limo Ride:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat through the Table of Limo Banter
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[reply entry][paragraph break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blank out the whole row;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>Table of Limo Banter</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>reply</u></td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>The car turns on and lurches into traffic. 'Must be a taxi driver,' Esther says.</td></tr>
+</font><font color=#000080></table>
+<br>
+</font><font color=#000080>From outside comes an indignant honk.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Where are we going?' Esther asks.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>No one answers.</font>&quot;
+<br>
+&quot;<font color=#000080>'All right, so you're not lawmen,' says Esther, somewhat later. 'And you're obviously not with animal control. Gangsters, then? The Mafia raises illegal animals?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'We're not gangsters,' says a blond one, goaded.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Temper,' murmurs the one in the black suit. 'Don't let the lady bother you.'</font>&quot;
+<br>
+&quot;<font color=#000080>Esther looks out the window for a while, until a new idea occurs. 'Are you spies, then?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Look, lady, you've stumbled on a classified defense project. We gotta determine if you're trustworthy and can work with us on it, and if not, we gotta deal with the leak.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Her eyes seek out yours, as though to ask whether you think they will really kill you. You find yourself nodding ever so slightly. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>She is quiet then and doesn't add anything further for the whole of the trip.</font>&quot;
+<br>
+
+<br>
+When Limo Ride ends: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the current level to easy;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;simplify the game;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let N be the metabolism of the creature;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let new time be the turn count - N;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change last feed time of the creature to new time;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the rubber ball to the creature; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;increase the time of day by 12 minutes;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the creature to the Foreman's Area;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the player to the Foreman's Area, without printing a room description;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You're brought into what appears to be a derelict factory of some kind, into a small room. The man in the black suit lingers after the others have taken Esther away. 'We'd like you to be useful to us,' he says. 'If you are, we can employ you, and no one gets hurt. I say this now to make sure you understand the stakes. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'You have a small test. If you are able to discern where our friend here comes from, say your answer, and we'll come spring you out. We'll be watching in the other room with the loudspeaker.' You follow his glance to [the creature] waiting for you.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'And Miss Milligan?' you ask.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Oh, the girl? Her test is simpler. I'm sure she'll pass. Not to worry.' He smiles. 'Unless of course you fail, in which case we won't be able to use her either. Well, good luck!'</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the player is not carrying the paper chart
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;move the paper chart to the player;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[line break]He starts out, then comes back and puts a paper chart into your hands. Then he's gone.[line break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[line break]He starts out, then pauses, comes back, and writes at the bottom of the chart. 'Just in case you forget the instructions,' he says, with a condescending smile.[line break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Test is a scene. Test begins when Limo Ride ends. Test ends when the creature is identified. 
+<br>
+
+<br>
+Final teaser is a scene. Final teaser begins when Test ends.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+When final teaser begins:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make scene break;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the left hand status line to &quot;<font color=#000080>Thursday, May 27, 1954</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the time of day to 9:25 AM;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the salami to the Hallway;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the player to the Hallway;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat with item running through things carried by the player
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove item from play;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat; <font color=#404040><sup><a href="#note1">[1]</a></sup></font>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the creature to the Office;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;remove Joe Dimaggio from play; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the color of the creature to a random color;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now every thing carried by the creature is in the Underpass;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now every thing worn by the creature is in the Underpass.
+<br>
+
+<br>
+The player is in Central Park Underpass.
+<br>
+
+<br>
+To decide whether (inner - a thing) lies within (external object - a thing):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if external object encloses inner, yes;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;no.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+To decide whether (inner - a thing) lies outside (external object - a thing):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if inner lies within external object, no;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yes.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><p><i>Note</i><p>
+<A name="note1"><font color=#404040>[1].   Because the player should not still be carrying the paint lid, the paper chart, etc., a week after the earlier scene.</font><p>
+</font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

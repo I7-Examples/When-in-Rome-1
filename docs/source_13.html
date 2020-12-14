@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>When in Rome 1: Accounting for Taste - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">When in Rome 1: Accounting for Taste</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_12.html">Previous</a><br><a href="source_14.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 2 - Persuasion and obedience</b>
+<br>
+
+<br>
+Check the girl trying taking off the dress (this is the can't take off dress rule): if the person asked wears the noun, stop the action.
+<br>
+
+<br>
+Check the girl trying taking something worn by the player (this is the can't take your clothes rule): stop the action.
+<br>
+
+<br>
+A persuasion rule for asking Esther to try doing something: say &quot;<font color=#000080>She gives you a mildly exasperated look, as though to say that she does not take instructions merely because they are issued by men.</font>&quot;; rule fails.
+<br>
+
+<br>
+A persuasion rule for asking the girl to try doing something: persuasion succeeds.
+<br>
+
+<br>
+Instead of asking someone to try kissing the player: try kissing the person asked.
+<br>
+
+<br>
+Unsuccessful attempt by girl trying doing something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat through table of Esther Retorts
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the reason the action failed is the cause entry
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry][paragraph break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'[if a random chance of 1 in 2 succeeds]Nope[otherwise]No[end if], [if a random chance of 1 in 2 succeeds]I don't think that's going to work[otherwise]that's not possible[end if],' the girl says.</font>&quot;
+<br>
+
+<br>
+Report the girl trying taking inventory:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the number of things carried by the girl is 0
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>She spreads her hands: not carrying a thing.</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the number of things carried by the girl is 1, say &quot;<font color=#000080>'Just this,' she says, indicating [the list of things carried by the girl].</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>She holds up [the list of things carried by the girl] so you can see.</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+
+<br>
+Contact relates a thing (called X) to a thing (called Y) when X is part of Y or Y is part of X. The verb to be joined to implies the contact relation.
+<br>
+
+<br>
+<b>Table of Esther Retorts</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>cause</u>&nbsp;&nbsp;</td><td halign="left" valign="top"><u> response</u></td></tr>
+<tr><td halign="left" valign="top">can't take yourself rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'I think I'd need the power of levitation in order to do that,' the girl says.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take other people rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'I don't know what manners they teach where you come from, but back in Ohio it was thought impolite to pick people up without their permission,' the girl remarks.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take component parts rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'[The noun] [is/are] pretty well attached to [a random thing which is joined to the noun],' the girl remarks.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take people's possessions rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'Just snatching it from [a random person who holds the noun]? That doesn't seem polite.'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take what you're inside rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'From inside?' the girl demands.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take what's already taken rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take scenery rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'I don't think I have quite the lifting power,' the girl says. 'Though I'd enjoy watching you try.'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take what's fixed in place rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'I don't think I have quite the lifting power,' the girl says. 'Though I'd enjoy watching you try.'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't exceed carrying capacity rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>She holds up her hands. 'I'm already full up, here.'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't remove from closed containers rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[physical impossibility]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't insert into closed containers rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[physical impossibility]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't go that way rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[physical impossibility]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't go through closed doors rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[physical impossibility]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't enter closed containers rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[physical impossibility]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't exit closed containers rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[physical impossibility]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't drop yourself rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[physical impossibility]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't drop what's already dropped rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't drop what's not held rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'[The noun] [is/are] already not in my possession,' replies the girl.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't drop clothes being worn rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[salacious retort]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take your clothes rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[salacious retort]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take off dress rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[salacious retort]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't put something on itself rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[physical impossibility]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't put onto something being carried rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'I don't quite see how,' she says.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't put onto what's not a supporter rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'That's more of a balancing act than I'm up for, I'm afraid,' she says.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't put clothes being worn rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[salacious retort]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't insert clothes being worn rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[salacious retort]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't wear what's not clothing rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'They say men are oblivious to fashions, but you exceed the normal, don't you?'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't wear what's already worn rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't eat unless edible rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'Unlike some critters I could mention, I do not have a cast iron stomach,' she says.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't eat clothing without removing it first rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[salacious retort]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't take off what's not worn rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't close what's already closed rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't open what's already open rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't switch off what's already off rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't switch on what's already on rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't unlock what's already unlocked rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">can't lock what's already locked rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>[already done]</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">no people lifting rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'A human pyramid doesn't seem like the solution to our problems,' she observes.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">no repeat refuse rule&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'Oh, I think not,' she says. 'I don't feel like having it throw [the noun] at my head again.'</font>&quot;</td></tr>
+</table>
+<br>
+Before asking the girl to try going nowhere:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'I'm not leaving you here by yourself,' she says. 'It could kill you.'</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Rule for supplying a missing noun while going: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change noun to outside.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Procedural rule: ignore the block vaguely going rule.
+<br>
+
+<br>
+To say already done:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat through Table of Esther's Bored Remarks
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blank out the whole row;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'Already done.'</font>&quot;
+<br>
+
+<br>
+<b>Table of Esther's Bored Remarks</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>response</u></td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>'That's already taken care of,' she says.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>'I don't think that's necessary, under the circumstances.'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>'We don't need to do that.'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>It's done.'</font>&quot;</td></tr>
+</table>
+<br>
+To say salacious retort:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat through Table of Esther's Flirtatious Remarks
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blank out the whole row;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>She pretends not to hear.</font>&quot;
+<br>
+
+<br>
+<b>Table of Esther's Flirtatious Remarks</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>response</u></td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>She looks at you sharply. 'If that was supposed to be cute, I warn you, I don't have much patience.'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>She sniffs.</font>&quot;</td></tr>
+</table>
+<br>
+
+<br>
+To say physical impossibility:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat through Table of Esther's Frustrated Denials
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blank out the whole row;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The girl rolls her eyes.</font>&quot;
+<br>
+
+<br>
+<b>Table of Esther's Frustrated Denials</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>response</u></td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>'Is the lack of oxygen going to your head?' she asks, bewildered by this impossible instruction.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top"> &quot;<font color=#000080>'I know, you're into Eastern philosophy. Cut an Ohio girl a break, huh?'</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>The girl taps her foot.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>She purses her lips. 'I'm glad to help if I can, but we're going to have to stick to the realm of the remotely logical.'</font>&quot;</td></tr>
+</table>
+<br>
+Procedural rule: ignore the block giving rule; ignore the block showing rule; ignore the block smelling rule; ignore the block listening rule.
+<br>
+
+<br>
+Carry out listening to something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;do nothing.
+<br>
+
+<br>
+Report listening to something: say &quot;<font color=#000080>Your attention bears no interesting result.</font>&quot;
+<br>
+
+<br>
+Report listening to a room: say &quot;<font color=#000080>There's no one thing that sounds notable here.</font>&quot; instead.
+<br>
+
+<br>
+Carry out smelling something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;do nothing.
+<br>
+
+<br>
+Report smelling something:  say &quot;<font color=#000080>Your attention bears no interesting result.</font>&quot;
+<br>
+
+<br>
+Report smelling a room: if a stinky thing is in the location, say &quot;<font color=#000080>You catch a whiff of [the list of stinky things in the location].</font>&quot; instead; otherwise say &quot;<font color=#000080>Nothing stands out.</font>&quot;
+<br>
+
+<br>
+Report someone trying listening to something: say &quot;<font color=#000080>[The person asked] concentrates, listening.</font>&quot;
+<br>
+
+<br>
+Report someone trying smelling something: say &quot;<font color=#000080>[The person asked] sniffs at [the noun].</font>&quot;
+<br>
+
+<br>
+Instead of asking someone for something: try asking the noun to try giving the second noun to the player.
+<br>
+
+<br>
+Carry out showing something to someone: say &quot;<font color=#000080>You reveal [the noun] to [the second noun].</font>&quot;
+<br>
+
+<br>
+Carry out the girl trying showing something to someone:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the second noun is the player
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the noun is fixed in place
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The girl poses, model-like, next to [the noun], but this naturally doesn't tell you much more than you knew before.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The girl shows you [the noun]. [run paragraph on]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try examining the noun;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The girl reveals [the noun] to [the second noun].</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+
+<br>
+Instead of asking someone to try saying yes: try saying yes. Instead of asking someone to try saying no: try saying no. Instead of asking someone to try saying sorry, try saying sorry. Instead of asking someone to try swearing obscenely, try swearing obscenely. Instead of asking someone to try swearing mildly, try swearing mildly.
+<br>
+ 
+<br>
+Singing is useless action. Burning something is useless action.  Waking up is useless action. Thinking is useless action.  Cutting is useless action. Jumping is useless action. Tieing something to something is useless action. Drinking something is useless action.  Swinging is useless action. Rubbing is useless action. Setting something to something is useless action. Waving hands is useless action. Buying is useless action. Climbing is useless action. Sleeping is useless action. Kissing is useless action. <font color=#404040>[Throwing something at something is useless action.</font>] Asking something about something is useless action. Telling something about something is useless action. Answering something that something is useless action. Waking something is useless action. Orienting something toward something is useless action. 
+<br>
+
+<br>
+Instead of asking girl to try useless action:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The girl frowns. 'I don't see how that would help in the current situation.'</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;persuasion fails.  
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"></font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

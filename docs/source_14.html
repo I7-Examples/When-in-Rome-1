@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>When in Rome 1: Accounting for Taste - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">When in Rome 1: Accounting for Taste</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_13.html">Previous</a><br><a href="source_15.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 3 - Reports for the girl.</b>
+<br>
+
+<br>
+Report the girl trying giving something to the creature:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if maximum action stack depth is greater than 0, say &quot;<font color=#000080> reaches up</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>Gingerly, the girl reaches up</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080> to hand </font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the maximum action stack depth is greater than 0, say &quot;<font color=#000080>it</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>[the noun]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080> to the visitor. You watch the transaction as well as you can, but since you can barely turn your head, you don't get much of a view.</font>&quot; instead.
+<br>
+
+<br>
+
+<br>
+Report someone trying taking something when the action stack depth is greater than 0:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;decrease the action stack depth by 1;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080> picks up [the noun][continue]</font>&quot;; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stop the action.
+<br>
+
+<br>
+Report the girl trying wearing the heels:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>She slips the heels back on, adding a couple of inches to her already-considerable height.</font>&quot; instead.
+<br>
+
+<br>
+Report the girl trying searching something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the maximum action stack depth is greater than 0
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked] looks inside. </font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the noun contains something, say &quot;<font color=#000080>'I see [a list of things in the noun] here,' she says. 'If that's any help.'</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>'Empty,' she reports tersely.</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying touching the creature:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the creature is hostile, say &quot;<font color=#000080>The girl reaches up to touch the creature, then jumps back when it growls. 'I don't think it's housebroken.'</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>The girl tries petting the creature, but this does not seem to calm it.</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying indicating something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'It doesn't seem to be paying attention when I point at things.'</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying waving at something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the noun is the creature, say &quot;<font color=#000080>'Hi!' she says, waving gamely at the creature. 'I don't think it speaks our language,' she concludes after a moment. 'It doesn't wave back.'</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>'That isn't going to make things any better.'</font>&quot;
+<br>
+
+<br>
+Report the girl trying examining the player:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'You do look a bit worse for wear,' she admits.</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying examining the girl:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'You should see yourself,' she replies dryly.</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying examining the handbag:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if maximum action stack depth is greater than 0, say &quot;<font color=#000080>[The person asked] squints at [the noun]. </font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'It's your garden-variety tote,' she says. 'I don't think anything has happened to it since it left my possession.'</font>&quot; instead.
+<br>
+
+<br>
+Report the girl trying examining the creature:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'It's... [the color of the creature],' she says. 'And it doesn't look like anything I've seen. I have the sense it's hungry. It keeps making biting faces at me.'</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying taking the hot dog: <font color=#404040><sup><a href="#note1">[1]</a></sup></font>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the maximum action stack depth is greater than 0, say &quot;<font color=#000080>[The person asked] takes</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>The girl picks up</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the action stack depth is greater than 0
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decrease the action stack depth by 1;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080> picks up the hot dog unenthusiastically[continue]</font>&quot;; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080> [the hot dog] unenthusiastically. 'I hope you have a point here of some sort.'</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of girl trying taking the creature for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The person asked] tries to prise off the grip of the thing, but the more she pulls on one arm, the more tightly it grips your throat with another, so that eventually she is forced to stop so that you don't get strangled.</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of the girl trying taking the creature more than once:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;do nothing.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of the girl trying attacking the creature:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the girl is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The girl pummels [the creature][if the girl carries the heels] with her shoes[end if] in the attempt to dislodge it.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>It becomes more agitated[if the creature carries something], and tries hitting you with [a random thing carried by the creature][otherwise], squeezing your windpipe to the point of pain[end if]. 'Maybe that isn't a good idea,' you squeak.</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of asking the girl to try attacking the player:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the girl is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'I've heard of guys that are into that,' she says. 'Never met one before, though.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Right. Well, it probably wouldn't have helped anyway.</font>&quot;
+<br>
+
+<br>
+Carry out the girl trying attacking something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;do nothing.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying attacking something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The girl strikes [the noun], but to no effect.</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Check the girl trying taking something (this is the no people lifting rule):
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the noun is the player, stop the action.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 
+<br>
+The trash can is in the Underpass. The trash can contains a half-eaten hot dog and a crumpled pamphlet. Understand &quot;<font color=#000080>trashcan</font>&quot; as the trash can. The hot dog is edible. The pamphlet is papery. The trash can is fixed in place. Understand &quot;<font color=#000080>food</font>&quot; as the hot dog. The trash can is openable and closed and transparent. The description of the pamphlet is &quot;<font color=#000080>A Civil Defense pamphlet entitled [italic type]Atomic Blast Creates Fire[roman type].</font>&quot; Understand &quot;<font color=#000080>civil defense</font>&quot; or &quot;<font color=#000080>defense</font>&quot; or &quot;<font color=#000080>atomic blast creates fire</font>&quot; as the pamphlet.
+<br>
+
+<br>
+The trampled newspaper is a papery thing. It is in the Underpass. The description of the newspaper is &quot;<font color=#000080>The 'Weather throughout the Nation' page, with a map of cold fronts across America. Unlikely that anyone will be needing this soon.</font>&quot; Understand &quot;<font color=#000080>weather section</font>&quot; or &quot;<font color=#000080>paper</font>&quot; or &quot;<font color=#000080>page</font>&quot; as the newspaper.
+<br>
+
+<br>
+Report the girl trying examining the pamphlet for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'It's a Civil Defense pamphlet called [italic type]Atomic Blast Creates Fire[roman type],' she says, flipping through it. 'Good, Clean, Housekeeping Is Civil Defense Housekeeping,' she reads, in a radio-announcer voice. 'My mother sent me one of these.'</font>&quot; instead.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report the girl trying examining the pamphlet for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'It's just an ordinary Civil Defense pamphlet. What to do when the bomb hits, that sort of thing.'</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+A thing can be consumed or unconsumed. A thing is usually unconsumed. Carry out the creature trying eating something: now the noun is consumed.
+<br>
+
+<br>
+Satiety is a scene. Satiety begins when Getting handbag is happening and at least three things are consumed. When Satiety begins: remove the creature from play; say &quot;<font color=#000080>At last the creature's grip on you slackens, and it relaxes and slides to the ground, almost immediately asleep.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'How bizarre,' says the girl, approaching it and reaching out as though she wants to touch it.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Don't wake it,' you say, standing over it. 'Go call for animal control or the police. I'll make sure it doesn't go anywhere. Or try to, anyway.'</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make scene break.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Satiety ends when the time since Satiety began is 1 minute.
+<br>
+
+<br>
+Instead of doing something in the Underpass:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if looking or examining, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if dropping, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if asking someone to try doing something, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if asking someone about something or telling someone about something, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if asking someone about specified object something, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if asking someone for help, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if asking someone for something, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if asking someone for vague help, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if answering a person that something, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if waiting, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[if a random chance of 1 in 2 succeeds]You try, but the more you struggle, the tighter the creature holds[otherwise]Your arms are pinned by the creature on your back and shoulders, which prevents you from being much use[end if].</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Understand &quot;<font color=#000080>talk to [someone]</font>&quot; as a mistake (&quot;<font color=#000080>You can ASK someone ABOUT something, ASK someone FOR something, or ASK someone TO DO something.</font>&quot;).
+<br>
+
+<br>
+Understand &quot;<font color=#000080>breathe</font>&quot; or &quot;<font color=#000080>inhale</font>&quot; or &quot;<font color=#000080>exhale</font>&quot; as a mistake (&quot;<font color=#000080>You are still able to get some breath, yes.</font>&quot;).
+<br>
+
+<br>
+Instead of asking someone for something, try asking the noun to try giving the second noun to the player.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of the girl trying asking for help, try asking the girl for vague help.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of waiting in the presence of the creature when Getting handbag is happening:
+<br>
+  say &quot;<font color=#000080>You try holding very still, the way snake victims are supposed to. Perhaps your tormentor will think you have died and lose interest in twisting your head off, which seems to be its current obsession.</font>&quot; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Before taking inventory when Getting handbag is happening:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You can hardly go through your pockets while pinned like this, though in fact you doubt you have anything useful anyway.</font>&quot; instead.
+<br>
+
+<br>
+A person has a table-name called conversation. The conversation of the girl is the Table of Girl Conversation.
+<br>
+
+<br>
+Instead of asking someone about something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let the source be the conversation of the noun;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if topic understood is a topic listed in source
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if there is a turn stamp entry
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The noun] has already told you [summary entry].</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;change turn stamp entry to the turn count;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[reply entry][paragraph break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The noun] stares at you blankly.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if. 
+<br>
+
+<br>
+Definition: a person is other if it is not the player.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>ask [someone] about [something]</font>&quot; as asking it about specified object. Understand &quot;<font color=#000080>tell [someone] about [something]</font>&quot; as asking it about specified object. Asking it about specified object is an action applying to two visible things. Carry out asking it about specified object: say &quot;<font color=#000080>[The noun] just shrugs.</font>&quot; Asking something about specified object something is useless action. 
+<br>
+
+<br>
+Instead of asking the girl about specified object something: try the girl trying examining the second noun.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>recap</font>&quot; or &quot;<font color=#000080>recall</font>&quot; or &quot;<font color=#000080>review</font>&quot; as recalling conversations. 
+<br>
+
+<br>
+Recalling conversations is an action applying to nothing. Recalling conversations is useless action. <font color=#404040><sup><a href="#note2">[2]</a></sup></font>
+<br>
+ 
+<br>
+Carry out recalling conversations:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat with speaker running through other people
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let source be the conversation of the speaker;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sort source in turn stamp order;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[The speaker] has so far told you: [line break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let index be 0;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repeat through source
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if there is a turn stamp entry
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let index be 1;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>  [summary entry][line break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end repeat;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if index is 0, say &quot;<font color=#000080>  absolutely nothing[line break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say line break;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat.
+<br>
+
+<br>
+<b>Table of Girl Conversation</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>topic</u>&nbsp;&nbsp;</td><td halign="left" valign="top"><u> reply</u>&nbsp;&nbsp;</td><td halign="left" valign="top"><u> summary</u>&nbsp;&nbsp;</td><td halign="left" valign="top"><u> turn stamp</u></td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>animal/creature/dog/critter/beast</font>&quot;&nbsp;&nbsp;</td><td halign="left" valign="top"> &quot;<font color=#000080>'Any second thoughts on what this is?' you ask.</td></tr>
+</font><font color=#000080></table>
+<br>
+</font><font color=#000080>'I thought it was a dog, but that was earlier when it was biting my dress,' she says. 'It could be anything. Or rather, it couldn't be anything: I don't think I've ever heard of an animal like it. Maybe it's from Mars.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>You chuckle, but with less conviction than you'd like.</font>&quot; &quot;<font color=#000080>that she really has no notion what the animal is</font>&quot; a number
+<br>
+&quot;<font color=#000080>Mars/aliens/planets/planet/alien/extraterrestrial/venus/mercury/jupiter/moon/luna/saturn/uranus/neptune/pluto</font>&quot; &quot;<font color=#000080>'Do you believe in life on other planets?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'If I'm meeting it now, yes.'</font>&quot; &quot;<font color=#000080>that she might be convinced there is life on other planets</font>&quot; -- 
+<br>
+&quot;<font color=#000080>weather</font>&quot; &quot;<font color=#000080>'How's the weather?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'It's fine, and is this getting us anywhere?'</font>&quot; &quot;<font color=#000080>that the weather continues fine, and that this has nothing to do with anything</font>&quot; --
+<br>
+&quot;<font color=#000080>girl/herself</font>&quot; &quot;<font color=#000080>'Tell me about yourself,' you say.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'This is hardly the time for introductions!' she replies.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'I don't seem to be going anywhere,' you point out.</font>&quot; &quot;<font color=#000080>that this isn't the time for introductions</font>&quot; --
+<br>
+&quot;<font color=#000080>me/myself</font>&quot; &quot;<font color=#000080>'Let me introduce myself,' you say.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'No, don't,' she says. 'If the thing kills you, I want you to remain just some stranger.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Oh, that's very thoughtful! So if we were introduced, you'd be making more of an effort to free me?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'I'm thinking!' she replies.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>You are both stubbornly silent for a moment.</font>&quot; &quot;<font color=#000080>that she doesn't want to be introduced just yet</font>&quot; -- 
+<br>
+&quot;<font color=#000080>job/employment/work</font>&quot; or &quot;<font color=#000080>her job/employment/work</font>&quot; &quot;<font color=#000080>'What do you do during the day?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Clipping service,' she says curtly. 'But I'm looking for a new place.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Don't like it?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'The boss is a bit clingy,' she says.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'I know how that feels,' you say, trying to reposition the critter's grip on you so that you can breathe a little more freely.</font>&quot; &quot;<font color=#000080>that she works for a clipping service but is planning to leave</font>&quot; --
+<br>
+&quot;<font color=#000080>clipping service</font>&quot; &quot;<font color=#000080>'What do you do at a clipping service, anyway?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Clip articles out of the paper,' she says, looking surprised. 'Any news about any of our clients.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Ah.' You refrain from saying how dull this sounds. She probably wouldn't find your work at the bank very exciting either.</font>&quot; &quot;<font color=#000080>that a clipping service sends clippings to people</font>&quot; --
+<br>
+&quot;<font color=#000080>boss/employer</font>&quot; or &quot;<font color=#000080>office romance</font>&quot; &quot;<font color=#000080>'I take it that you don't have any dime-store novel ideas about marrying your boss?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'He's already married,' she says curtly. 'He just likes to wander.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Ah.'</font>&quot; &quot;<font color=#000080>that her boss is a philanderer</font>&quot; --
+<br>
+&quot;<font color=#000080>Korea/italy/war/soldiers/soldier/fighting/army/sergeant</font>&quot; &quot;<font color=#000080>You start to make an observation about your life in the Army, but this meets with a stopping glare from the cool eyes, so that -- though you can think of no particular reason why -- you feel you have made a blunder, and fall silent.</font>&quot; &quot;<font color=#000080>that she doesn't want to discuss the war</font>&quot; --
+<br>
+
+<br>
+Understand &quot;<font color=#000080>ask [someone] for [police]</font>&quot; as asking it for help. Asking it for help is an action applying to one thing. Carry out asking it for help: try asking the noun to try getting help.
+<br>
+
+<br>
+Instead of answering someone that &quot;<font color=#000080>[help]</font>&quot;, try asking the noun for vague help.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>ask [someone] for [help]</font>&quot; or &quot;<font color=#000080>ask [someone] to [help]</font>&quot; as asking it for vague help. Asking it for vague help is an action applying to one thing. Carry out asking it for vague help: say &quot;<font color=#000080>[The noun] looks confused.</font>&quot; Instead of asking the girl for vague help: say &quot;<font color=#000080>'I'm trying! But I don't want to leave you here, and I also don't quite see how to get it off you...'</font>&quot;
+<br>
+
+<br>
+Instead of asking the girl about &quot;<font color=#000080>[police]</font>&quot;: try asking the girl to try getting help.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>siren/sirens/police/policemen/policeman/fireman/firemen/emergency</font>&quot; or &quot;<font color=#000080>fire/police department/help</font>&quot; as &quot;<font color=#000080>[police]</font>&quot;. Understand &quot;<font color=#000080>help</font>&quot; or &quot;<font color=#000080>assist</font>&quot; or &quot;<font color=#000080>aid</font>&quot; or &quot;<font color=#000080>help me</font>&quot; or &quot;<font color=#000080>assist me</font>&quot; or &quot;<font color=#000080>aid me</font>&quot; as &quot;<font color=#000080>[help]</font>&quot;.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>fetch [police]</font>&quot; or &quot;<font color=#000080>summon [police]</font>&quot; or &quot;<font color=#000080>get [police]</font>&quot; or &quot;<font color=#000080>call [police]</font>&quot;  as getting help. Getting help is an action applying to nothing. 
+<br>
+
+<br>
+Carry out the girl trying getting help: do nothing.
+<br>
+
+<br>
+Report the girl trying getting help: say &quot;<font color=#000080>'Okay,' you say. 'I have an idea. I will stay here with our rabid lunatic friend, since I have no choice, while you will go and fetch some kind of animal control personnel, or possibly a policeman or fireman. As quickly as possible, please.' 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>She brightens at this suggestion. 'Yes, of course, I'm sorry. Stupid of me.' [if the girl wears the heels]She takes off the heels again and[otherwise]Still stocking-footed, she[end if] heads back up the pathway briskly.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Even so, it's an unpleasantly long wait until some animal-catchers arrive, suited up in protective suits, and shoot the creature with a tranquillizing dart. But you are free of it at last.</font>&quot;; remove the creature from play.
+<br>
+
+<br>
+Carry out getting help: say &quot;<font color=#000080>Not likely to be much use just at the moment.</font>&quot;
+<br>
+
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><p><i>Notes</i><p>
+<A name="note1"><font color=#404040>[1].  The 'action stack depth' allows for actions that can happen implicitly to be stacked together into a single sentence.</font><p>
+<A name="note2"><font color=#404040>[2].  When we define any new action that we don't want to allow the character to do, we need to set it accordingly (because our persuasion rules are so open-ended).</font><p>
+</font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

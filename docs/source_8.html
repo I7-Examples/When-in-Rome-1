@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>When in Rome 1: Accounting for Taste - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">When in Rome 1: Accounting for Taste</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_7.html">Previous</a><br><a href="source_9.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 3 - Every Turn Rules for Creature</b>
+<br>
+ 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+After entering something in the presence of a contrary creature:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the creature cannot touch the player, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;move the creature to the noun;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You climb into [the noun]. [The creature], agitated, tries to get you out again, a process at which it is so unsuccessful that it winds up falling in with you.</font>&quot;
+<br>
+
+<br>
+After exiting in the presence of a contrary creature:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the creature is in location, say &quot;<font color=#000080>You climb out. [The creature] tries to push you back, but without success.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>You scramble out. [The creature] tries to pull you into [the holder of the creature] with it, but fails miserably.</font>&quot;
+<br>
+
+<br>
+<font color=#404040>[Every turn:
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;if the number of things carried by the player is greater than 4
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let target be the first thing held by the player;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let next target be the next thing held after target;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while next target is a thing
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin; 
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let target be the next target;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let next target be the next thing held after the next target;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end while;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;silently try dropping the target;
+<br>
+</font><font color=#404040>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the target is not carried by the player, say &quot;Because you are carrying so many things, you lose your grip on <font color=#404040>[the target</font>].&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.]
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Definition: a thing is inanimate if it is not a person.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>To decide whether game has begun:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if we are dead, no; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;yes.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Every turn:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if Test is happening, follow the Creature Behavior rules;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;change last location to location.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>The creature behavior rules is a rulebook.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The first creature behavior rule:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;abide by the creature death rule.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>This is the creature death rule:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is suffocating
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increase the breath count of the creature by 1;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the breath count of the creature &gt; 3
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;At this point <font color=#404040>[the creature</font>] is overwhelmed by lack of whatever it breathes, and collapses.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end the game saying </font>&quot;Unfortunately, you are unable to revive the thing&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is dying
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;Too long without sustenance, <font color=#404040>[the creature</font>] succumbs to a coma and death.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end the game saying </font>&quot;You have killed your Visitor.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the poisoned creature rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is poisoned
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is slow;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is visible, say </font>&quot;<font color=#404040>[The creature</font>] does not move but simply looks glassy<font color=#404040>[if the creature is hungry</font>] and hungry<font color=#404040>[end if</font>]<font color=#404040>[if the creature is starving</font>]. Starving, even -- but too dulled to do anything about it<font color=#404040>[end if</font>].&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the drop heavy things rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature carries a tiring thing (called anvil)
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] grimaces at the weight of <font color=#404040>[the anvil</font>].<font color=#404040>[line break</font>]&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying dropping the anvil;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Definition: a thing is tiring if it outweighs strength.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the placid held creature rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the player is carrying the creature
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature carries a delicious thing and the creature is hungry
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying dining;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is cold, say </font>&quot;<font color=#404040>[The creature</font>] huddles against you for warmth.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise say </font>&quot;<font color=#404040>[The creature</font>] <font color=#404040>[if a random chance of 1 in 2 succeeds</font>]squirms a little in your grip<font color=#404040>[otherwise</font>]leans over to look at the floor<font color=#404040>[end if</font>]<font color=#404040>[if a random chance of 1 in 2 succeeds</font>], but does nothing<font color=#404040>[end if</font>].&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule fails;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the inactivity while blinded rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is blinded and the creature is active
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is smart
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can see a lit device (called the target)
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the target is fixed in place or the target is available,
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying switching off the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise try the creature trying hiding oneself;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is blinded and the creature is active
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] <font color=#404040>[if a random chance of 1 in 2 succeeds</font>]obviously does not appreciate the glare of the light<font color=#404040>[otherwise</font>]huddles by itself, blinking<font color=#404040>[end if</font>]<font color=#404040>[if the creature is hungry</font>]. It also looks to be getting hungry<font color=#404040>[end if</font>].&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying hiding oneself;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the player cannot see the creature, rule fails; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is passive, rule fails; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the creature is visible, say </font>&quot;<font color=#404040>[The creature</font>] cowers <font color=#404040>[if the creature is not in the location</font>]in <font color=#404040>[the holder of the creature</font>]<font color=#404040>[otherwise</font>]in what shadow it can find<font color=#404040>[end if</font>], sniveling.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule fails;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the food consumption rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is hungry,
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying dining.  
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the inactivity while starving rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is starving and creature is active
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying dining;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is starving, try the creature trying crying;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if. 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the slothful kids don't move rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is slothful and the creature is active
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying waiting;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the dress when cold rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is cold,
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying dressing oneself.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the inactivity while cold rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is cold,
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying shivering.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the timid creature hides rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is timid and the creature can see the player
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying hiding oneself;  
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080> 
+<br>
+</font><font color=#000080>A creature behavior rule (this is the timid creature lurks rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is timid and the creature is visible
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] tries to put <font color=#404040>[the random fixed in place thing in the location</font>] between itself and you.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the contrary creature rule): 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is contrary and the noun is a thing
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the noun is the creature
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive; [because we will count glaring back at the player as its action for this turn]
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is visible, say </font>&quot;<font color=#404040>[The creature</font>] <font color=#404040>[if a random chance of 1 in 2 succeeds</font>]watches your attention to<font color=#404040>[otherwise</font>]observes your interest in<font color=#404040>[end if</font>] <font color=#404040>[the noun</font>]<font color=#404040>[if a random chance of 1 in 2 succeeds</font>], its eyes narrowing<font color=#404040>[otherwise</font>], growling in the back of its throat<font color=#404040>[end if</font>].<font color=#404040>[line break</font>]&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if opening, try the creature trying closing the noun;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if closing, try the creature trying opening the noun;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active, try the creature trying taking the noun;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the evil creature rule): 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is secretive and the creature is active and the creature is smart, try the creature trying launching us.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the acquisitive creature environment rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is not visible, make no decision;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is acquisitive
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is in a container and the location is rich
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] thoughtfully counts <font color=#404040>[the number of things in the location in words</font>] things outside its home, as compared to <font color=#404040>[the number of things in the holder of the creature in words</font>] where it is now, and scratches its head.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying exiting;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is in the location and the creature can see a rich enterable container (called the target)
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] thoughtfully counts <font color=#404040>[the number of things in the target in words</font>] things in <font color=#404040>[the target</font>], as compared to <font color=#404040>[the number of things in the location in words</font>] out here, and scratches its head. &quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying entering the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>Definition: a container is rich:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if it is closed and it is opaque, no;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the number of things in it is greater than the number of things in the holder of the creature, yes.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Definition:  a room is rich if the number of things in it is greater than the number of things in the holder of the creature.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the creature escape rule): 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the player lies outside the creature, make no decision;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is in a container (called home)
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the home contains something (called target) which is wanted by the creature
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying taking the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the player carries the home, make no decision;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature was last fed too long ago, do nothing;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise try the creature trying exiting;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the active creature is in a closed container (called the trap)
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is friendly and the creature is visible, say </font>&quot;<font color=#404040>[The creature</font>] presses its mouth to the inner surface of <font color=#404040>[the trap</font>] and makes fish faces at you.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise if the creature is visible, say </font>&quot;<font color=#404040>[The creature</font>] knocks on the inner wall of <font color=#404040>[the trap</font>].&quot;<font color=#000080>; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is hostile and the creature is active and the creature is smart, try the creature trying launching us.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the hostile action rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is hostile
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can see an available papery thing (called the target)
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can touch the target, try the creature trying attacking the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise try the creature trying showing temper;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can see a papery thing (called the target)
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying attacking the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the smelly thing rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is offended and the creature is stupid
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let problem be a random stinky thing which can be seen by the creature;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying disposing of the problem;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if. 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the good smelly thing rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the odor sensitivity of the creature is inverse
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let target be a random stinky thing which can be seen by the creature;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying taking the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if. 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the discard trash rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is carrying something (called the target) which is not wanted by the creature
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is acquisitive, make no decision;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is vast and the target is unexplored and the target is not a container
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying attacking the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying dropping the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the greedy action rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is acquisitive and the creature is not occupied
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can see an available grabbable thing (called the target) which is not had by the creature
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin; ;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying taking the target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>Definition: a thing is grabbable if it is not fixed in place and it is not scenery.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Definition: a creature is occupied if the number of things carried by the creature is the carrying capacity of the creature.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the juggling stuff rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is acquisitive and the creature is occupied
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is visible and a random chance of 1 in 4 succeeds
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say </font>&quot;<font color=#404040>[The creature</font>] juggles <font color=#404040>[the list of things carried by the creature</font>] in a colorful arc.&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if a random chance of 1 in 2 succeeds
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the creature is passive;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature is visible, say </font>&quot;<font color=#404040>[The creature</font>] gleefully counts its <font color=#404040>[number of things carried by the creature in words</font>] possession<font color=#404040>[s</font>].&quot;<font color=#000080>;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying playing with a random thing carried by the creature;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>A creature behavior rule (this is the bored creature looks around rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active and the creature is playful
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can see an unexplored thing, make no decision;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying exploring;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>A creature behavior rule (this is the bored action rule):
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is not visible, make no decision;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is not in location, make no decision;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;now every thing which is part of something is explored;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;if the creature is active
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can see something available (called the target) which is not wanted by the creature
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can touch an unexplored available thing (called the new target)
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying playing with the new target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the creature can touch an entertaining thing
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let the new target be a random entertaining thing;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try the creature trying playing with the new target;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Definition: a thing is entertaining if creature can touch it and it is not wanted by the creature and it is available and it is not part of something.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>The last every turn rule:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;change the heart's desire to the creature; 
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;now every animal is active.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080></font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"></font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

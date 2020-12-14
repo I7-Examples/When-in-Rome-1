@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>When in Rome 1: Accounting for Taste - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">When in Rome 1: Accounting for Taste</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_9.html">Previous</a><br><a href="source_11.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Chapter 3 - The Player's Clothing and Inventory</b>
+<br>
+
+<br>
+The salami is edible and stinky and fleshy. Understand &quot;<font color=#000080>bow</font>&quot; or &quot;<font color=#000080>ribbon</font>&quot; or &quot;<font color=#000080>sausage</font>&quot; or &quot;<font color=#000080>meat</font>&quot; as the salami. The description of the salami is &quot;<font color=#000080>Rich in garlic and meatiness.</font>&quot; The salami is in the Set-like Hallway. &quot;<font color=#000080>A salami, decorated with a bright red bow, is propped against the wall.</font>&quot;
+<br>
+
+<br>
+The player wears a fedora, a jacket, a shirt, an undershirt, a pair of slacks, a pair of undershorts, a pair of socks, and a pair of shoes. The socks are stinky. Understand &quot;<font color=#000080>shorts</font>&quot; as the undershorts. Understand &quot;<font color=#000080>pants</font>&quot; or &quot;<font color=#000080>trousers</font>&quot; as the slacks. Understand &quot;<font color=#000080>hat</font>&quot; as the fedora. The fedora, the jacket,  and the shoes are leathery. The description of the fedora is &quot;<font color=#000080>It is your favorite hat.</font>&quot; The description of the jacket is &quot;<font color=#000080>The same one you wore to work, looking more and more creased.</font>&quot; The description of the shirt is &quot;<font color=#000080>There's probably a streak or two on the back -- the laundry isn't very competent. But it doesn't show when hidden under your jacket.</font>&quot; The description of the slacks is &quot;<font color=#000080>Matching to the jacket, but you are beginning to think the whole set will have to be discarded later.</font>&quot; The description of the shoes is &quot;<font color=#000080>A good pair, though there are the beginnings of a hole in the left sole.</font>&quot;
+<br>
+
+<br>
+Instead of examining something which underlies something (called the covering): say &quot;<font color=#000080>It is hard to see [the noun] under [the covering].</font>&quot; 
+<br>
+Report taking off undershorts for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You strip off your shorts, feeling distinctly self-conscious.</font>&quot; instead.
+<br>
+
+<br>
+Instead of taking inventory:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You're carrying [list of things carried by the player][if the player wears something]. You are wearing [list of uppermost things worn by the player][end if].</font>&quot;
+<br>
+
+<br>
+Instead of examining the player:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the player wears the jacket and the player wears the slacks and the player wears the fedora, say &quot;<font color=#000080>You look sharp in your suit and fedora.</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the number of things worn by the player is 0, say &quot;<font color=#000080>You are down to your birthday suit.</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the number of things worn by the player is 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the player wears the fedora, say &quot;<font color=#000080>Aside from your stylish hat, you are nude.</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the player wears the undershorts, say &quot;<font color=#000080>At least you still have your undershorts.</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the player wears the undershirt, say &quot;<font color=#000080>You're down to only your undershirt, and it is not as long as it could be.</font>&quot; instead;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the player is indecent, say &quot;<font color=#000080>You're not quite decently clad, put it that way.</font>&quot; instead; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You are feeling a little wilted in the heat.</font>&quot;; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Definition: a person is nude if the number of things worn by it is 0. Definition: a person is indecent if it is not wearing the slacks.
+<br>
+
+<br>
+Definition: a thing is uppermost if it is not under something.
+<br>
+
+<br>
+Underlying relates one thing to various things. The verb to underlie (it underlies, they underlie, it is underlying, it is underlaid) implies the underlying relation. The verb to be under implies the underlying relation.
+<br>
+
+<br>
+The shirt underlies the jacket. The pair of socks underlies the pair of shoes. The undershorts underlie the slacks. The undershirt underlies the shirt.
+<br>
+
+<br>
+Check taking off:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the noun underlies something (called the impediment) which is worn by the player, say &quot;<font color=#000080>[The impediment] is in the way.</font>&quot; instead.
+<br>
+
+<br>
+Carry out taking off:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the noun is not underlaid by anything.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Report taking off something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You take off [the noun], and are now wearing [list of uppermost things worn by the player].</font>&quot; instead.
+<br>
+
+<br>
+Overlying relates one thing to various things. The verb to overlie (it overlies, they overlie, it is overlying) implies the overlying relation. 
+<br>
+
+<br>
+The jacket overlies the shirt. The shoes overlie the socks. The slacks overlie the undershorts. The shirt overlies the undershirt.
+<br>
+
+<br>
+Before wearing something when something (called the impediment) which overlies the noun is worn by the player: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try taking off the impediment;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the player is wearing the impediment, stop the action.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Before taking off something which underlies something (called the impediment) which is worn by the player: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try taking off the impediment;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the impediment is worn by the player, stop the action.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Carry out wearing:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the noun overlies something (called the hidden item) worn by the player, now the hidden item underlies the noun.
+<br>
+
+<br>
+Instead of looking under something which is worn by the player:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if something (called the underwear) underlies the noun, say &quot;<font color=#000080>You peek at [the underwear]. Yup, still there.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise say &quot;<font color=#000080>Just you in there.</font>&quot;.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  
+<br>
+Color is a kind of value. The colors are red, orange, yellow,  green, cyan, blue, indigo, purple,  tan, black, white, and grey. The creature has a color.
+<br>
+
+<br>
+The creature is an animal. The description is &quot;<font color=#000080>It is not the same species as whatever accosted you in the park (but then, there seem to be many of these critters). It looks somewhat like a chimpanzee [if the carrying capacity of the creature is not 2] -- with [carrying capacity of the creature in words] arm[s]. You frown, and count again: yes, [carrying capacity of the creature in words]. And [otherwise]. Only with [end if]a [if the odor sensitivity of the creature is strong or the odor sensitivity of the creature is inverse]larger, more sensitive[otherwise]smaller[end if] nose, and ears that come to points, and [tongue of creature]... [paragraph break][if the creature has something]It carries [list of things carried by the creature]. It wears [list of things worn by the creature].[otherwise]Odd, really.[end if]</font>&quot; 
+<br>
+
+<br>
+Instead of examining a slothful creature: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>Not the same species as whatever accosted you in the park. It looks a bit like pictures you've seen of sloths: [carrying capacity of the creature in words] long, low-slung arm[s], broad shoulders. But it looks considerably weaker than an Earth sloth, barely muscled at all. Its nose is [if the odor sensitivity of the creature is strong or the odor sensitivity of the creature is inverse]large and sensitive[otherwise]nearly non-existent[end if], and it has no ears.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>[if the creature has something]It carries [list of things carried by the creature]. It wears [list of things worn by the creature].[otherwise]Odd, really.[end if]</font>&quot;
+<br>
+
+<br>
+Instead of examining a fast creature:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the moon of the creature is Europa,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>This one has certain affinities with a penguin: it looks as though it would move better on ice than on ordinary land, and instead of ordinary arms it has a single flipper-like appendage. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>[if the creature has something]It carries [list of things carried by the creature] awkwardly clasped to its body. It wears [list of things worn by the creature].[otherwise]Odd, really.[end if]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>If you'd seen this one in the park, you might have confused it with a cat rather than a dog, though it is capable of moving only on its legs. It is lithe and feline, with a [if the odor sensitivity of the creature is strong or the odor sensitivity of the creature is inverse]large whiskered[otherwise]nearly non-existent[end if] nose. It also has [carrying capacity of the creature in words] arm[s].
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>[if the creature has something]It carries [list of things carried by the creature]. It wears [list of things worn by the creature].[otherwise]Odd, really.[end if]</font>&quot;
+<br>
+
+<br>
+The handbag is a leathery openable open container. The handbag is wearable.  Understand &quot;<font color=#000080>purse</font>&quot; or &quot;<font color=#000080>bag</font>&quot; or &quot;<font color=#000080>leather</font>&quot; or &quot;<font color=#000080>tote</font>&quot; as the handbag. The description of the handbag is &quot;<font color=#000080>A shiny leather tote bag, the kind that can accommodate anything; from the looks of it, it's either not the girl's best bag, or she is not in the best circumstances, because it has gotten sadly worn.</font>&quot;
+<br>
+
+<br>
+In the handbag are a wallet, a lipstick, a hairbrush, a key, and a letter. The letter is papery. The description of the letter is &quot;<font color=#000080>A folded note from the employment office.</font>&quot; The description of the lipstick is &quot;<font color=#000080>You do not recognize the brand. But then, you probably wouldn't.</font>&quot; The description of the key is &quot;<font color=#000080>An ordinary latchkey.</font>&quot; The description of the hairbrush is &quot;<font color=#000080>A few strands of honey-brown hair are still caught in the bristles.</font>&quot; The description of the wallet is &quot;<font color=#000080>It looks slender, as girls' wallets usually do, in your experience.</font>&quot;
+<br>
+
+<br>
+Understand the color property as describing the creature. 
+<br>
+
+<br>
+The creature has a moon. A person has a speed. A person has an intelligence.  A person has a food. The metabolism of the creature is 50.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>Visitor</font>&quot; or &quot;<font color=#000080>animal</font>&quot; or &quot;<font color=#000080>alien</font>&quot; or &quot;<font color=#000080>arms</font>&quot; or &quot;<font color=#000080>arm</font>&quot; or &quot;<font color=#000080>paw</font>&quot; or &quot;<font color=#000080>paws</font>&quot; or &quot;<font color=#000080>nose</font>&quot; or &quot;<font color=#000080>tongue</font>&quot; or &quot;<font color=#000080>teeth</font>&quot; or &quot;<font color=#000080>flipper</font>&quot; or &quot;<font color=#000080>fin</font>&quot; or &quot;<font color=#000080>monkey</font>&quot; or &quot;<font color=#000080>dog</font>&quot; or &quot;<font color=#000080>penguin</font>&quot; or &quot;<font color=#000080>critter</font>&quot; as the creature.  The creature has a property called tongue. The tongue of the creature is &quot;<font color=#000080>raspy tongue</font>&quot;. The creature has a property called claw. The claw of the creature is &quot;<font color=#000080>claw</font>&quot;.
+<br>
+
+<br>
+A woman is usually fast. A woman is usually smart. A woman is usually earthly. A woman is usually Earthlike.
+<br>
+
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"></font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>
