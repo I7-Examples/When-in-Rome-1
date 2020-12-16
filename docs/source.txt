@@ -1,8 +1,8 @@
 "When in Rome 1: Accounting for Taste" by Emily Short.
 
-Include (- Serial "060503"; -).
+Include (- Serial "101025"; -).
 
-The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 2. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
+The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 3. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
 
 The last few years, you've settled into a routine. You work at the bank, you go home, you occasionally have dinner with your mother. It is all acceptably ordinary.
 
@@ -14,7 +14,7 @@ Use no scoring, the serial comma and American dialect. Use MAX_SYMBOLS of 8000. 
 
 Include Basic Screen Effects by Emily Short. Include Menus by Emily Short. Include Basic Help Menu by Emily Short. Include Locksmith by Emily Short. Include Punctuation Removal by Emily Short. Include Plurality by Emily Short.
 
-Release along with cover art, a website, and source text.
+Release along with cover art, a website, a file of "Manual" called "WiR Manual.pdf", and source text.
 
 
 Part 1 - World Model
@@ -123,12 +123,10 @@ Definition: the fedora is available if it is not carried by someone.
 
 To decide whether (item - a thing) interests (character - a person):  
 	if the item is a person, no; 
-	if the character has the item
-	begin;
+	if the character has the item:
 		if the item is stinky and the odor sensitivity of the creature is inverse, yes;
 		if the item is delicious, yes;
 		no;
-	end if;
 	if the character is acquisitive, yes;
 	if [the character is hungry and] the item is delicious, yes; [For diagnostic simplicity during the first episode, we will not require the character to be hungry.]
 	if the character is cold and the item is wearable, yes;
@@ -288,29 +286,29 @@ quickly	slowly
 
 Section 2 - Creature Actions
 
-Procedural rule:
-	if the person asked is not the player, substitute the animal feeding rule for the can't eat unless edible rule.
+Rule for implicitly taking something (called target) when the person asked is the creature: 
+	try the creature taking the target.
+
+The animal feeding rule is listed instead of the can't eat unless edible rule in the check eating rules. 
 	
 Procedural rule:
 	if the person asked is not the player, ignore the can't take people's possessions rule.
 	
-Instead of asking the creature to try doing something when the person asked is in a closed container:
+Instead of asking the creature to try doing something when the creature is in a closed container:
 	say "The creature watches your mouth move, fascinated, but it obviously cannot hear you." 
 	
 Before printing the name of the creature:
-	if a random chance of 1 in 4 succeeds
-	begin;
+	if a random chance of 1 in 4 succeeds:
 		if the creature is scaly, say "scaly ";
 		if the creature is furry, say "furry "; 
-		say "[color of the creature] ";
-	end if.
+		say "[color of the creature] ".
 	
-
 Rule for printing the name of the creature:
 	if a random chance of 1 in 2 succeeds, say "creature";
 	otherwise say "Visitor".
 
 This is the animal feeding rule:
+	if the actor is the player and the noun is not edible, say "That's plainly inedible." instead;
 	if the noun is not delicious, stop the action.
 	
 A person can be active or passive.
@@ -649,7 +647,7 @@ Report the creature trying begging for something:
 	if the creature is hostile, say "[unfriendly request entry][paragraph break]";
 	now the creature is passive.
 	
-Before the creature trying begging for something when the person asked lies within the noun:
+Before the creature trying begging for something when the noun encloses the creature:
 	now the creature is passive;
 	say "[The creature] looks queasy and gestures for you to set it down." instead.
 
@@ -755,7 +753,7 @@ Carry out the creature trying crying: do nothing.
 
 Report the creature trying crying: say "[The creature] sobs." 
 
-Report the creature stupid trying crying:
+Report the stupid creature trying crying:
 	say "[The creature] [if a random chance of 1 in 2 succeeds]lies curled on the floor, keening softly[otherwise]rocks itself back and forth[end if]."  instead.
 	
 Report hostile smart creature trying crying:
@@ -808,8 +806,12 @@ Definition: a container is sheltering if it is open or it is openable.
 Dressing oneself is an action applying to nothing.
 
 Before the creature trying dressing oneself when the person asked is not carrying something wearable:
-	if the person asked can see an available wearable thing (called target) which is not worn by the person asked, try the person asked trying taking the target;
-	otherwise if the person asked can see a wearable thing (called target) which is not worn by the person asked, try the person asked trying taking the target.
+	if the person asked can see an available wearable thing (called target) which is not worn by the person asked
+	begin;
+		try the person asked trying taking the target;
+	otherwise if the person asked can see a wearable thing (called target) which is not worn by the person asked;
+		try the person asked trying taking the target;
+	end if.
 	
 Check the creature trying dressing oneself:
 	if the person asked is not carrying a wearable thing, stop the action.
@@ -817,32 +819,30 @@ Check the creature trying dressing oneself:
 Carry out something trying dressing oneself:
 	if the person asked is carrying a wearable thing (called target), try the person asked trying wearing the target.
 	
-Report the creature cold trying wearing something:
+Report the cold creature trying wearing something:
 	say "[The creature] puts on [the noun] and pulls it as tight as possible to conserve warmth." instead.
 	
-Report the creature cold trying wearing the jacket:
+Report the cold creature trying wearing the jacket:
 	say "[The creature] pulls the jacket awkwardly over its arms and gathers the front shut." instead.
 
 
 Dining is an action applying to nothing.
 
 Before a meaty person trying dining when the person cannot see the player:
-	if the person asked is in an adjacent room and the person asked can see a door (called the appropriate exit)
-	begin;
-		try the person asked trying entering the appropriate exit instead;
-	end if.
+	if the person asked is in an adjacent room and the person asked can see a door (called the appropriate exit):
+		try the person asked trying entering the appropriate exit instead.
 
 Before the creature trying dining when the person asked is wearing a delicious thing (called lunch) and the person asked is not carrying a delicious thing:
 	try the person asked trying taking off the lunch instead.
 
 Instead of the creature trying dining when the person asked does not have a delicious thing:
-	if the person asked can see an available useful delicious thing (called target)
-	begin;
+	if the person asked can see an available useful delicious thing (called target):
 		try the person asked trying taking the target;
-	otherwise;
-		if the person asked can see a delicious thing (called target), try the person asked trying taking the target;
-		otherwise if the person asked is smart, try the person asked trying exploring;
-	end if.
+	otherwise:
+		if the person asked can see a delicious thing (called target):
+			try the person asked trying taking the target;
+		otherwise if the person asked is smart:
+			try the person asked trying exploring.
 	
 Check the creature trying dining:
 	if the person asked is not carrying a delicious thing, stop the action.
@@ -870,21 +870,21 @@ Definition: a person is fidgety if it is fast or it is lightning.
 Report a vast person trying playing with something when the noun is fixed in place and a random chance of 1 in 2 succeeds:
 	say "[The person asked] casually lifts [the noun] a few inches, then sets it back down." instead.
 
-Report the creature athletic trying playing with something when the noun is fixed in place and the noun is in the location:
+Report the athletic creature trying playing with something when the noun is fixed in place and the noun is in the location:
 	if the person asked is vast, continue the action;
 	say "[The person asked] climbs up one side of [the noun] and down the other." instead. 
 	
-Report the creature fidgety trying playing with something: 
+Report the fidgety creature trying playing with something: 
 	if a random chance of 1 in 2 succeeds,
 		say "[The person asked] taps [the noun] all over." instead;
 	otherwise say "[The person asked] beats a rapid rhythm with its claws on [the noun]." instead.
 	 
-Report the creature fidgety trying playing with a container:
+Report the fidgety creature trying playing with a container:
 	say "[The person asked] taps [the noun]";
 	if the noun is papery, say ", which rustles." instead;
 	otherwise say ", which thunks hollowly." instead.
 	
-Report the creature fidgety trying playing with a papery thing:
+Report the fidgety creature trying playing with a papery thing:
 	say "[The person asked] rustles [the noun]." instead.
 	
 Report a smart curious person trying playing with a papery thing:
@@ -981,12 +981,15 @@ Report the creature trying playing with the jacket when the jacket is worn by th
 Report the creature trying playing with something edible: 
 	say "[The person asked] prods [the noun] into interesting shapes." instead.
 	
-Report the creature playful trying playing with something edible:
+Report the playful creature trying playing with something edible:
 	say "[The person asked] mimes wearing [the noun] as a hat, watching you slyly." instead.
  	
-Carry out someone trying doing something: now the person asked is passive.
+The inaction rule is listed after the check stage rule in the specific action-processing rules.
 
-Report the creature fidgety trying entering something: 
+This is the inaction rule: 
+	now the person asked is passive.
+
+Report the fidgety creature trying entering something: 
 	say "[The creature] [if the creature is timid]creeps[otherwise]hops[end if] into [the noun][if the player is in the noun] with you[end if][if the heart's desire is not the creature] in search of [the heart's desire][end if]." instead.
 	
 Report a slow negligible person trying entering something: 
@@ -1288,10 +1291,11 @@ Definition: a thing is inanimate if it is not a person.
 To decide whether game has begun:
 	if we are dead, no; 
 	yes.
-
+[
 Every turn:
 	if Test is happening, follow the Creature Behavior rules;
 	change last location to location.
+	]
 	
 The creature behavior rules is a rulebook.
 
@@ -1452,24 +1456,23 @@ Definition: a container is rich:
 Definition:  a room is rich if the number of things in it is greater than the number of things in the holder of the creature.
 
 A creature behavior rule (this is the creature escape rule): 
-	if the player lies outside the creature, make no decision;
-	if the creature is active and the creature is in a container (called home)
-	begin;
-		if the home contains something (called target) which is wanted by the creature
-		begin;
+	if the player encloses the creature, make no decision;
+	if the creature is active and the creature is in a container (called home):
+		if the home contains something (called target) which is wanted by the creature:
 			try the creature trying taking the target;
-		otherwise;
-			if the player carries the home, make no decision;
-				if the creature was last fed too long ago, do nothing;
-				otherwise try the creature trying exiting;
-				if the active creature is in a closed container (called the trap)
-				begin;	
-					if the creature is friendly and the creature is visible, say "[The creature] presses its mouth to the inner surface of [the trap] and makes fish faces at you.";
-					otherwise if the creature is visible, say "[The creature] knocks on the inner wall of [the trap]."; 
-					now the creature is passive;
-				end if;
-		end if;
-	end if.
+		otherwise:
+			if the player carries the home:
+				make no decision;
+			if the creature was last fed too long ago:
+				do nothing;
+			otherwise:
+				try the creature trying exiting;
+			if the active creature is in a closed container (called the trap):
+				if the creature is friendly and the creature is visible:
+					say "[The creature] presses its mouth to the inner surface of [the trap] and makes fish faces at you.";
+				otherwise if the creature is visible:
+					say "[The creature] knocks on the inner wall of [the trap]."; 
+				now the creature is passive;
 	
 A creature behavior rule:
 	if the creature is hostile and the creature is active and the creature is smart, try the creature trying launching us.
@@ -1567,8 +1570,7 @@ A creature behavior rule (this is the bored action rule):
 			otherwise;
 				if the creature can touch an entertaining thing
 				begin;
-					let the new target be a random entertaining thing;
-					try the creature trying playing with the new target;
+					try the creature trying playing with a random entertaining thing;
 				end if;
 			end if;
 		end if;
@@ -1825,7 +1827,7 @@ Understand the color property as describing the creature.
 
 The creature has a moon. A person has a speed. A person has an intelligence.  A person has a food. The metabolism of the creature is 50.
 
-Understand "Visitor" or "animal" or "alien" or "arms" or "arm" or "paw" or "paws" or "nose" or "tongue" or "teeth" or "flipper" or "fin" or "monkey" or "dog" or "penguin" or "critter" as the creature.  The creature has a property called tongue. The tongue of the creature is "raspy tongue". The creature has a property called claw. The claw of the creature is "claw".
+Understand "Visitor" or "animal" or "alien" or "arms" or "arm" or "paw" or "paws" or "nose" or "tongue" or "teeth" or "flipper" or "fin" or "monkey" or "dog" or "penguin" or "critter" as the creature.  The creature has some text called tongue. The tongue of the creature is "raspy tongue". The creature has some text called claw. The claw of the creature is "claw".
 
 A woman is usually fast. A woman is usually smart. A woman is usually earthly. A woman is usually Earthlike.
 
@@ -1882,7 +1884,7 @@ Report the creature trying eating the letter when getting handbag is happening:
 Report the creature trying eating the heels when Getting Handbag is happening:
 	if the girl is visible, say "The girl watches, frowning more and more deeply, while the creature makes disgusting eating noises behind your head.
 	
-'It's eating your shoes, I presume?' you say.
+'It's eating your shoes, I presume?' you gasp.
 
 'My best ones,' she replies, in a martyred voice." instead.
 
@@ -1915,7 +1917,16 @@ Instead of examining the creature when Getting Handbag is happening:
 
  The girl wears a dress. Understand "frock" or "skirt" or "gown" or "attire" as the dress. She carries a pair of heels. The heels are wearable. The description of the heels is "Sharp-heeled and sharp-toed, either an instrument of torture or a clever weapon." Understand "shoes" as the heels. The heels are ambiguously plural. The description of the dress is "Without a good eye for women's clothes, you can mostly tell that it is a good cut and material but somewhat past its prime, as though she used to have much more money than she does just at the moment."  The description of the girl's hair is "Ruffled and tossed, with a strand or two that insist on curling above her eyes." The description of the girl's eyes is "It's hard to be sure of their color when it's so dim here. They might be blue, or possibly grey, or maybe light green." The description of the girl's nose is "It is if possible even more pert than when she first addressed you."
 
-Strangulation is a scene. Strangulation begins when Getting handbag is happening and the creature is starving. [* This scene, unlike most others in the game, can repeat as necessary.] Strangulation ends when the creature is not starving. When strangulation ends: say "The desperate grip on your throat slackens somewhat."; change strangulation counter to 0.
+Strangulation is a scene. Strangulation begins when Getting handbag is happening and the creature is starving. [* This scene, unlike most others in the game, can repeat as necessary.] 
+
+Strangulation ends when everything is safe.
+
+To decide whether everything is safe:
+	if the creature is not starving, yes;
+	if Getting handbag is not happening, yes;
+	no.
+
+When strangulation ends: say "The desperate grip on your throat slackens somewhat."; change strangulation counter to 0.
 
 Every turn during Strangulation:
 	if the creature is not starving, rule succeeds;
@@ -1977,14 +1988,13 @@ Table of Esther Retorts
 cause	response
 can't take yourself rule	"'I think I'd need the power of levitation in order to do that,' the girl says."
 can't take other people rule	"'I don't know what manners they teach where you come from, but back in Ohio it was thought impolite to pick people up without their permission,' the girl remarks."
-can't take component parts rule	"'[The noun] [is/are] pretty well attached to [a random thing which is joined to the noun],' the girl remarks."
+can't take component parts rule	"'[The noun] [is-are] pretty well attached to [a random thing which is joined to the noun],' the girl remarks."
 can't take people's possessions rule	"'Just snatching it from [a random person who holds the noun]? That doesn't seem polite.'"
 can't take what you're inside rule	"'From inside?' the girl demands."
 can't take what's already taken rule	"[already done]"
 can't take scenery rule	"'I don't think I have quite the lifting power,' the girl says. 'Though I'd enjoy watching you try.'"
 can't take what's fixed in place rule	"'I don't think I have quite the lifting power,' the girl says. 'Though I'd enjoy watching you try.'"
 can't exceed carrying capacity rule	"She holds up her hands. 'I'm already full up, here.'"
-can't remove from closed containers rule	"[physical impossibility]"
 can't insert into closed containers rule	"[physical impossibility]"
 can't go that way rule	"[physical impossibility]"
 can't go through closed doors rule	"[physical impossibility]"
@@ -1992,7 +2002,7 @@ can't enter closed containers rule	"[physical impossibility]"
 can't exit closed containers rule	"[physical impossibility]"
 can't drop yourself rule	"[physical impossibility]"
 can't drop what's already dropped rule	"[already done]"
-can't drop what's not held rule	"'[The noun] [is/are] already not in my possession,' replies the girl."
+can't drop what's not held rule	"'[The noun] [is-are] already not in my possession,' replies the girl."
 can't drop clothes being worn rule	"[salacious retort]"
 can't take your clothes rule	"[salacious retort]"
 can't take off dress rule	"[salacious retort]"
@@ -2110,13 +2120,12 @@ Carry out the girl trying showing something to someone:
 
 Instead of asking someone to try saying yes: try saying yes. Instead of asking someone to try saying no: try saying no. Instead of asking someone to try saying sorry, try saying sorry. Instead of asking someone to try swearing obscenely, try swearing obscenely. Instead of asking someone to try swearing mildly, try swearing mildly.
  
-Singing is useless action. Burning something is useless action.  Waking up is useless action. Thinking is useless action.  Cutting is useless action. Jumping is useless action. Tieing something to something is useless action. Drinking something is useless action.  Swinging is useless action. Rubbing is useless action. Setting something to something is useless action. Waving hands is useless action. Buying is useless action. Climbing is useless action. Sleeping is useless action. Kissing is useless action. [Throwing something at something is useless action.] Asking something about something is useless action. Telling something about something is useless action. Answering something that something is useless action. Waking something is useless action. Orienting something toward something is useless action. 
+Singing is useless action. Burning something is useless action.  Waking up is useless action. Thinking is useless action.  Cutting is useless action. Jumping is useless action. Tying something to something is useless action. Drinking something is useless action.  Swinging is useless action. Rubbing is useless action. Setting something to something is useless action. Waving hands is useless action. Buying is useless action. Climbing is useless action. Sleeping is useless action. Kissing is useless action. [Throwing something at something is useless action.] Asking something about something is useless action. Telling something about something is useless action. Answering something that something is useless action. Waking something is useless action. Orienting something toward something is useless action. 
 
 Instead of asking girl to try useless action:
-	say "The girl frowns. 'I don't see how that would help in the current situation.'";
-	persuasion fails.  
+	say "The girl frowns. 'I don't see how that would help in the current situation.'".
 	
-Section 3 - Reports for the girl.
+Section 3 - Reports for the girl
 
 Report the girl trying giving something to the creature:
 	if maximum action stack depth is greater than 0, say " reaches up";
@@ -2247,9 +2256,7 @@ Understand "talk to [someone]" as a mistake ("You can ASK someone ABOUT somethin
 Understand "breathe" or "inhale" or "exhale" as a mistake ("You are still able to get some breath, yes.").
 
 Instead of asking someone for something, try asking the noun to try giving the second noun to the player.
-	
-Instead of the girl trying asking for help, try asking the girl for vague help.
-	
+
 Instead of waiting in the presence of the creature when Getting handbag is happening:
  	say "You try holding very still, the way snake victims are supposed to. Perhaps your tormentor will think you have died and lose interest in twisting your head off, which seems to be its current obsession."	
 	
@@ -2275,7 +2282,7 @@ Instead of asking someone about something:
 
 Definition: a person is other if it is not the player.
 
-Understand "ask [someone] about [something]" as asking it about specified object. Understand "tell [someone] about [something]" as asking it about specified object. Asking it about specified object is an action applying to two visible things. Carry out asking it about specified object: say "[The noun] just shrugs." Asking something about specified object something is useless action. 
+Understand "ask [someone] about [something]" as asking it about specified object. Understand "tell [someone] about [something]" as asking it about specified object. Asking it about specified object is an action applying to two visible things. Carry out asking it about specified object: say "[The noun] just shrug[s]." Asking something about specified object something is useless action. 
 
 Instead of asking the girl about specified object something: try the girl trying examining the second noun.
 
@@ -2459,10 +2466,9 @@ Carry out the girl trying throwing something at something:
 	move the noun to the location of the person asked.
 
 A procedural rule: 
-	if the person asked is not the player
-	begin; 
-		ignore the block throwing at rule; ignore the futile to throw things at inanimate objects rule; ignore the check life property for throwing at rule;
-	end if.
+	if the person asked is not the player:
+		ignore the block throwing at rule; 
+		ignore the futile to throw things at inanimate objects rule.
 
 Report the girl trying throwing something at something: 
 	if the maximum action stack depth is greater than 0, say "[The person asked] throws it at [the second noun]. She misses by a mile." instead;
@@ -2480,11 +2486,11 @@ Report the girl trying eating something when the maximum action stack depth is g
 Report the girl trying inserting something into something when the maximum action stack depth is greater than 0:
 	say "[The person asked] puts [the noun] inside." instead.
 
-After printing the name of the girl (called the target human): 
-	if the target human is the person asked
+After printing the name of the girl: 
+	if the girl is the person asked
 	begin;
-		make the target human proper;
-		now the target human is previously implicated;
+		now the girl is proper-named;
+		now the girl is previously implicated;
 	end if.
 
 To say continue:
@@ -2503,27 +2509,17 @@ To say optional comma:
 
 [Here it becomes useful to change Inform's idea of whether the girl has a proper name, in order to suppress articles under some circumstances.]
 
+A person can be formerly-improper.
+
 To make (target human - a person) proper:
-	(- Properize({target human}); -)
+	now the target human is proper-named;
+	now the target human is formerly-improper.
 
 To remove properties:
-	(- DeProperize(); -)
-
-Include (-
-
-Attribute exproper;
-
-[ Properize x;
-	if (x hasnt proper) give x proper exproper;
-];
-
-[ Deproperize x;
-	objectloop(x has exproper) give x ~proper ~exproper;
-];
+	now every formerly-improper person is proper-named.
  
--)
-
-When Drinks ends: remove properties.
+When Drinks ends: 
+	remove properties.
 
 Section 5 - Scripted behavior
 [Elsewhere we will experiment with more goal-seeking characters, but in this scene we have the girl follow a scripted set of behavior except when the player's actions disrupt the flow. To do this, we make a table of rules for her to follow and blank out lines one at a time as these are completed.]
@@ -2678,7 +2674,7 @@ And so you have now arrived at that difficult moment when it is necessary to ext
 Instead of taking inventory when Drinks is happening:
 	say "You pat down your pockets, then realize half-way through that you've no idea what you're looking for. The drinks are paid for, the evening is over; all that remains is to thank Esther and depart."	
 	
-Instead of asking Esther to try drinking a martini when Drinks is happening:
+Instead of asking Esther to try drinking a martini glass when Drinks is happening:
 	if a martini glass is on the table, say "She holds up one of her glasses as though to show that she has done her duty by it.";
 	otherwise say "'Oh, no, I really couldn't drink another.'"	
 	
@@ -2702,7 +2698,7 @@ She tips her head. 'A girl doesn't like to take undue advantage, that's all.'";
 	now Esther is dismissed instead.
 	
 Instead of singing when Drinks is happening:
-	say "You start a song without really thinking about it, but Esther stops you with a gesture "
+	say "You start a song without really thinking about it, but Esther stops you with a gesture."
 	
 Understand "goodbye" or "bye" or "farewell" or "ciao" or "adios" as "[goodbye]".
 
@@ -2721,10 +2717,11 @@ The small round table is in the Cafe. A martini glass is a kind of thing. The sm
 Instead of tasting or drinking a martini glass:
 	say "You tip the most recent martini glass up hopefully, but there really is nothing more to be gotten. Esther smirks at you."
 	
-Instead of buying a martini:
+Instead of buying a martini glass:
 	say "Just in time, you remember that you planned to go home now."
 
-Instead of smelling a martini: say "It smells a little more vermouthy than you mix them yourself. Everyone always uses too much vermouth."
+Instead of smelling a martini glass: 
+	say "It smells a little more vermouthy than you mix them yourself. Everyone always uses too much vermouth."
 
 Instead of waiting during Drinks:
 	say "You're silent for a moment, regarding your empty martini glass. Esther is silent too, which is oddly comforting. Then she gathers herself together. 'I really should go.'";
@@ -2739,7 +2736,7 @@ After going to the Sidewalk:
 	move Esther to the location;
 	say "'Well. I'd best be off, then,' you say.
 	
-She walks out beside you, and you have a flash of dÃ©jÃ  vu; or perhaps a sense that this is supposed to occur again in the future. You find yourself a little vexed by this sensation.";
+She walks out beside you, and you have a flash of déjà vu; or perhaps a sense that this is supposed to occur again in the future. You find yourself a little vexed by this sensation.";
 	now Esther is dismissed.
 
 A person can be dismissed or engaged. A person is usually engaged.
@@ -2893,15 +2890,18 @@ Report the creature trying dropping the rubber ball more than once:
 Report an Earthlike creature trying playing with a heavy thing:
 	say "[The creature] does a couple of quick lifts of [the noun]; why do you get the sense that it's showing off?" instead.
 
-The creature can be identified or unidentified. The creature is unidentified.
+The creature can be known or unknown. The creature is unknown.
 
 Understand "shout [moon]" as guessing a moon. Understand "say [moon]" as guessing a moon. Understand "shout [text]" as guessing randomly. Understand "shout [moon] to [any person]" or "say [moon] to [any person]" as directed guessing. Understand the commands "yell" and "holler" as "shout".
 
-Directed guessing is an action applying to one moon and one visible thing. [* We must define 'one visible thing' here because we want to be able to accept commands like SHOUT MARS TO THUGS when the thugs are not in the same room and not touchable.] Check directed guessing: if the Test is not happening, say "That seems pointless." instead; if the second noun is not the thugs, say "It is unlikely that anyone but the thugs can hear you." instead. Carry out directed guessing: try guessing a moon the moon understood.  Directed guessing is useless action.
+Directed guessing is an action applying to one moon and one visible thing. [* We must define 'one visible thing' here because we want to be able to accept commands like SHOUT MARS TO THUGS when the thugs are not in the same room and not touchable.] 
+
+Check directed guessing: [if the Test is not happening, say "That seems pointless." instead;] if the second noun is not the thugs, say "It is unlikely that anyone but the thugs can hear you." instead. Carry out directed guessing: try guessing a moon the moon understood.  Directed guessing is useless action.
 
 Guessing a moon is an action applying to one moon. Guessing randomly is an action applying to one topic. Guessing a moon is useless action. Guessing randomly is useless action.
-
+[
 Before guessing a moon when Test is not happening: say "No reason to do any such thing." instead.
+]
 
 Carry out guessing randomly: say "No one answers."
 
@@ -2924,7 +2924,7 @@ Finally the door opens and you are invited to emerge. Strong men grasp you firml
 The last thing you see clearly is Esther on an adjacent table, fetal, with a bright metal hat fitted over her head.";
 		end the game saying "This can't be good";
 	otherwise;
-		now the creature is identified;
+		now the creature is known;
 		say "'I believe this one is from [the moon understood],' you announce loudly, for the benefit of the unseen men spying on you.
 		
 'Excellent,' says a voice from the loudspeaker above you. It sounds genuinely relieved. 'Stay there a moment, please.'
@@ -3030,7 +3030,7 @@ Burying relates various things to various things. The verb to disguise (it disgu
  
 Understand "conceal [something] in [something]" or "hide [something] in [something]" or "bury [something] in [something]" as hiding it in. Hiding it in is an action applying to two things. Check hiding it in: if the second noun is not a container, say "[The second noun] will not conceal much." instead; if the second noun is not openable, say "[The second noun] cannot be closed." instead; if the player does not carry the noun, try taking the noun; if the player does not carry the noun, stop the action. Carry out hiding it in: try inserting the noun into the second noun; if the noun is in the second noun and the second noun is openable, try closing the second noun. Hiding something in something is useless action.
 
-Understand "dig in [something]" as digging. [Digging is an action applying to one thing.] Carry out digging: say "Pointless."
+Understand "dig in [something]" as digging. Digging is an action applying to one thing. Carry out digging: say "Pointless."
  
 Understand "look up [moon] in [something]" as researching in it about (with nouns reversed). Understand "consult [something] on/about [moon]" as researching in it about. Understand "read about [moon] in [something]" as researching in it about (with nouns reversed). Understand "read [moon] in [something]" as researching in it about (with nouns reversed). Understand "look up [moon]" as researching vaguely.
 
@@ -3120,7 +3120,7 @@ Chapter 6 - General verb readjustment
 
 Section 1 - Some words from later episodes
 
-Instead of tieing something to something, say "Your days as an Eagle Scout are behind you." 
+Instead of tying something to something, say "Your days as an Eagle Scout are behind you." 
 	
 Understand "use [a wearable thing]" as wearing. Understand "use [an edible thing]" as eating. Understand "use [an enterable container]" as entering.
 
@@ -3323,7 +3323,7 @@ Instead of kissing the creature:
 Understand "rip [something]" or "tear [something]" as attacking.
 
 Understand "kick [something]" as attacking.
-
+[
 Before attacking the creature when Test is happening:
 	say "You attack [the noun], which begins to squeal pathetically. This brings in the men in suits, much faster than you would have believed possible.
 		
@@ -3343,6 +3343,7 @@ It's obvious that these men have had this argument many times. Before it goes to
 
 'Biological imperative,' says the blond man, with a humorless smile.";
 		end the game saying "This can't be good" instead.
+		]
 
 Instead of smelling something stinky:
 	say "Phew!"
@@ -3514,9 +3515,10 @@ There's a flash of [color of the creature] arms. 'It took my bag!' she exclaims,
 You open your mouth to deny involvement, but she doesn't wait to hear it; instead she strips off her shoes and goes running after the thing. You watch her disappear into the darkness of the underpass; consider going home; then realize that you don't want to figure in this girl's mind as the man who set a rabid animal on her and then left her to her fate.";
 	move the creature to the player; 
 	move the fedora to the Underpass;
-	move the handbag to the creature.
+	move the handbag to the creature;
+	pause the game.
 	
-Getting handbag is a scene. Getting handbag begins when play begins. Getting handbag ends when the player does not carry the creature..
+Getting handbag is a scene. Getting handbag begins when play begins. Getting handbag ends when the player does not carry the creature.
 
 When getting handbag ends:
 	remove the creature from play.  
@@ -3672,7 +3674,7 @@ When Limo Ride ends:
 		say "[line break]He starts out, then pauses, comes back, and writes at the bottom of the chart. 'Just in case you forget the instructions,' he says, with a condescending smile.[line break]";
 	end if;
 	
-Test is a scene. Test begins when Limo Ride ends. Test ends when the creature is identified. 
+Test is a scene. Test begins when Limo Ride ends. Test ends when the creature is known. 
 
 Final teaser is a scene. Final teaser begins when Test ends.
 	
@@ -3692,15 +3694,7 @@ When final teaser begins:
 	now every thing carried by the creature is in the Underpass;
 	now every thing worn by the creature is in the Underpass.
 
-The player is in Central Park Underpass.
-
-To decide whether (inner - a thing) lies within (external object - a thing):
-	if external object encloses inner, yes;
-	no.
-	
-To decide whether (inner - a thing) lies outside (external object - a thing):
-	if inner lies within external object, no;
-	yes.
+The player is in Central Park Underpass. 
 	
 Section 3 - More optional events
 
@@ -3767,7 +3761,7 @@ hint	used
 "You don't."	a number
 "Just wait until you get where you're going."	--
 
-When Test begins:
+[When Test begins:
 	choose row 1 in the Table of Hints;
 	change title entry to "How do I identify this animal?";
 	change subtable entry to Table of Test Hints;
@@ -3783,6 +3777,7 @@ hint	used
 "Friendly creatures tend to react positively to being petted, while others may be hostile, ticklish, confused, or even frightened."	--
 "For cloth-eating, try offering it food or observing what it is fed."	--
 "Reflexes are the trickiest bit: try taking something it's carrying or throwing something at it and see how it responds."	--
+]
 
 Table of Escape Hints
 hint	used
@@ -3803,3 +3798,4 @@ Chapter 6 - Extra Parsing
 
 After reading a command:
 	remove stray punctuation.
+	
