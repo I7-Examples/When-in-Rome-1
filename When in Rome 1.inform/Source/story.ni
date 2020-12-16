@@ -1,6 +1,6 @@
 "When in Rome 1: Accounting for Taste" by Emily Short.
 
-Include (- Serial "101025"; -).
+Include (- Serial "100530"; -).
 
 The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 3. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
 
