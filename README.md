@@ -18,4 +18,4 @@ You may not alter the game or remove the authorship attribution.
 
 You may not distribute the game for profit without the author’s explicit written permission. Charging a fee to cover physical media or shipping is acceptable.
 
-Notifying the author before including When in Rome in any compilations would be a welcome courtesy, but is not required.
+Notifying the author before including _When in Rome_ in any compilations would be a welcome courtesy, but is not required.
