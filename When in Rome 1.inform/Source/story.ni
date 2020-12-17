@@ -1,8 +1,8 @@
-"When in Rome 1: Accounting for Taste" by Emily Short.
+"When in Rome 1: Accounting for Taste" by Emily Short
 
-Include (- Serial "100530"; -).
+Include (- Serial "201217"; -).
 
-The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 3. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
+The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 4. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
 
 The last few years, you've settled into a routine. You work at the bank, you go home, you occasionally have dinner with your mother. It is all acceptably ordinary.
 
@@ -10,9 +10,11 @@ One day a strange creature crosses your path, and disrupts the schedule entirely
 
 When in Rome is designed as a lunchtime game: there are five episodes, each of which may be played to a conclusion within about fifteen minutes."
 
-Use no scoring, the serial comma and American dialect. Use MAX_SYMBOLS of 8000. Use full-length room descriptions.
+Use no scoring, the serial comma and American dialect. Use full-length room descriptions.
 
-Include Basic Screen Effects by Emily Short. Include Menus by Emily Short. Include Basic Help Menu by Emily Short. Include Locksmith by Emily Short. Include Punctuation Removal by Emily Short. Include Plurality by Emily Short.
+Include Basic Screen Effects by Emily Short. Include Menus by Emily Short. Include Basic Help Menu by Emily Short. Include Locksmith by Emily Short. Include Punctuation Removal by Emily Short.
+
+Include Singing Reloaded by Shin. Include Swearing Reloaded by Shin.
 
 Release along with cover art, a website, a file of "Manual" called "WiR Manual.pdf", and source text.
 
@@ -291,9 +293,8 @@ Rule for implicitly taking something (called target) when the person asked is th
 
 The animal feeding rule is listed instead of the can't eat unless edible rule in the check eating rules. 
 	
-Procedural rule:
-	if the person asked is not the player, ignore the can't take people's possessions rule.
-	
+The can't take people's possessions rule does nothing when the person asked is not the player.
+
 Instead of asking the creature to try doing something when the creature is in a closed container:
 	say "The creature watches your mouth move, fascinated, but it obviously cannot hear you." 
 	
@@ -315,11 +316,11 @@ A person can be active or passive.
 
 [After the creature trying doing something: now the creature is passive; continue the action.]
 
-Before someone trying taking something: change containment context to the holder of the noun.
+Before someone trying taking something: now containment context is the holder of the noun.
 
 Containment context is a thing that varies. 
 
-Heart's desire is a thing that varies. Before someone trying taking something, change heart's desire to the noun.
+Heart's desire is a thing that varies. Before someone trying taking something, now heart's desire is the noun.
 
 Report the creature trying taking something:
 	if the creature is in the containment context and the containment context is a container,
@@ -374,10 +375,9 @@ Report the creature trying dropping something:
 	
 Instead of the creature trying taking something when the number of things carried by the creature is the carrying capacity of the creature:
 	let the new target be a random thing carried by the creature;
-	if the creature is hungry and the creature carries a delicious thing (called the target)
-	begin;
-		while the new target is the target, let the new target be a random thing carried by the creature; 
-	end if;
+	if the creature is hungry and the creature carries a delicious thing (called the target):
+		while the new target is the target:
+			let the new target be a random thing carried by the creature; 
 	try the creature trying dropping the new target.
 
 Instead of the creature trying taking something when the creature is in a container (called the playhouse):
@@ -431,7 +431,7 @@ Instead of the creature trying eating something portable which is not carried by
 	try the creature trying taking the noun.
 
 Carry out the creature trying eating something:
-	change the last feed time of the creature to the turn count;
+	now the last feed time of the creature is the turn count;
 	if the noun is poisoned and the creature is not wood-pulpy and the creature is negligible, now the creature is poisoned.
 	
 Report the creature trying eating a poisoned thing:
@@ -499,7 +499,7 @@ Before someone trying closing something which is not available:
 	if the creature is in the noun, continue the action;
 	try the person asked trying taking the noun instead.
  
-A procedural rule: ignore the can't take people's possessions rule.
+The can't take people's possessions rule does nothing.
 
 Instead of taking something which is worn by the creature when the speed of the creature is lightning:
 	now the creature is passive;
@@ -828,7 +828,7 @@ Report the cold creature trying wearing the jacket:
 
 Dining is an action applying to nothing.
 
-Before a meaty person trying dining when the person cannot see the player:
+Before a meaty person trying dining when the person asked cannot see the player:
 	if the person asked is in an adjacent room and the person asked can see a door (called the appropriate exit):
 		try the person asked trying entering the appropriate exit instead.
 
@@ -910,21 +910,21 @@ Instead of a vast person trying attacking an unopenable papery container:
 	if the person asked is visible, say "[The creature] finishes dismantling [the noun], leaving [the list of things in the noun] behind.";
 	now every thing in the noun is in the space;
 	now the person asked is passive;
-	remove the noun from play.
+	now the noun is nowhere.
 
 Instead of a vast person trying attacking an edible thing:
-	remove the noun from play;
+	now the noun is nowhere;
 	if the person asked is visible, say "[The person asked] tears apart [the noun], scattering bits everywhere.";
 	now the person asked is passive.
  
 Carry out the creature trying attacking something papery:
-	remove the noun from play.
+	now the noun is nowhere.
 
 Report the creature trying attacking something papery: 
 	say "[The person asked] rips [the noun] to tiny shreds.";
 
 Instead of attacking a papery thing:
-	remove the noun from play;
+	now the noun is nowhere;
 	if the noun contains something
 	begin;
 		say "You tear up [the noun], leaving behind [the list of things in the noun][if the creature is in the noun]. [The creature] blinks in surprise[end if].";
@@ -1109,7 +1109,7 @@ Check the creature trying sneaking something under something:
 	if the second noun is not fixed in place, stop the action.
 	
 Carry out the creature trying sneaking something under something:
-	remove the noun from play;
+	now the noun is nowhere;
 	now the second noun disguises the noun.
 	
 Report the creature trying sneaking something under something:
@@ -1128,7 +1128,7 @@ Check sneaking something under something:
 	if the second noun is not fixed in place, say "[The second noun] would not make much of a concealment." instead.
 	
 Carry out sneaking something under something:
-	remove the noun from play;
+	now the noun is nowhere;
 	now the second noun disguises the noun.
 	
 Report sneaking something under something:
@@ -1243,7 +1243,7 @@ Instead of the creature trying pushing a container:
 	
 Instead of the creature trying taking something when the noun outweighs strength:
 	if the noun is pointless, stop the action;
-	change the noun to pointless;
+	now the noun is pointless;
 	if the person asked is visible, say "[The person asked] tries to pick up [the noun], but without success."
 	
 Instead of a secretive starving Earthlike creature trying taking something which is not available:
@@ -1254,7 +1254,7 @@ Instead of an Earthlike creature trying attacking the player when the person ask
 	
 Instead of an Earthlike creature trying attacking the player when the person asked carries a heavy thing (called the weapon):
 	say "Starving, desperate, and tired of waiting for your cooperation, [the person asked] slugs you hard with [the weapon]. And what happens from there is all blackness...";
-	end the game in death.
+	end the story saying "You have died".
 
 
 
@@ -1309,13 +1309,13 @@ This is the creature death rule:
 		if the breath count of the creature > 3
 		begin;
 			say "At this point [the creature] is overwhelmed by lack of whatever it breathes, and collapses.";
-			end the game saying "Unfortunately, you are unable to revive the thing";
+			end the story saying "Unfortunately, you are unable to revive the thing";
 		end if;
 	end if;
 	if the creature is dying
 	begin; 
 			say "Too long without sustenance, [the creature] succumbs to a coma and death.";
-			end the game saying "You have killed your Visitor.";
+			end the story saying "You have killed your Visitor.";
 			rule succeeds; 
 	end if.
 	
@@ -1579,7 +1579,7 @@ A creature behavior rule (this is the bored action rule):
 Definition: a thing is entertaining if creature can touch it and it is not wanted by the creature and it is available and it is not part of something.
 	
 The last every turn rule:
-	change the heart's desire to the creature; 
+	now the heart's desire is the creature; 
 	now every animal is active.
 	
 Section 4 - Creature Reactions to Giving and Other Actions
@@ -1628,7 +1628,7 @@ Before someone trying accepting something when the person asked is occupied:
 Carry out someone trying accepting something:
 	move the noun to the person asked.
 	
-Procedural rule: ignore the block giving rule.
+The block giving rule does nothing.
 
 Check giving something to the creature (this is the polite refusal of unwanted objects rule): 
 	if the second noun does not want the noun
@@ -1687,7 +1687,7 @@ Before doing something other than examining or looking or taking inventory or wa
 	if the creature can see the player and the player is carrying something delicious (called the treat),
 		say "In its eagerness for [the treat], [the creature] [if the creature is hostile]circles you, growling, so that you can't get much done[otherwise]clings so desperately to your trouser leg that you can't do much of anything[end if]." instead.
 		 	
-Every turn: if the player is poisoned, end the game saying "You black out."
+Every turn: if the player is poisoned, end the story saying "You black out."
 
 
 Instead of putting a wearable thing on the creature: try dressing the creature in the noun.
@@ -1714,7 +1714,7 @@ Report dressing it in:
 	
 After dressing a hungry meaty creature in something: 
 	say "[The noun] suffers you to get close enough with [the second noun]; then, for your pains, bites you deeply in the forearm.";
-	end the game saying "You spend most of the rest of the evening with a doctor".
+	end the story saying "You spend most of the rest of the evening with a doctor".
 	
 Instead of dressing a hungry meaty creature in something for the first time:
 	say "You get near [the noun] with [the second noun], but it grins very largely and shows you all its teeth, a sight of such menace that you draw back."
@@ -1926,7 +1926,7 @@ To decide whether everything is safe:
 	if Getting handbag is not happening, yes;
 	no.
 
-When strangulation ends: say "The desperate grip on your throat slackens somewhat."; change strangulation counter to 0.
+When strangulation ends: say "The desperate grip on your throat slackens somewhat."; now strangulation counter is 0.
 
 Every turn during Strangulation:
 	if the creature is not starving, rule succeeds;
@@ -1934,7 +1934,7 @@ Every turn during Strangulation:
 	if strangulation counter is greater than 2
 	begin;
 		say "You pass out from lack of air.";
-		end the game in death;
+		end the story saying "You have died";
 	otherwise;
 		choose row strangulation counter in the Table of Strangling;
 		say "[stage entry][paragraph break]";
@@ -1988,7 +1988,7 @@ Table of Esther Retorts
 cause	response
 can't take yourself rule	"'I think I'd need the power of levitation in order to do that,' the girl says."
 can't take other people rule	"'I don't know what manners they teach where you come from, but back in Ohio it was thought impolite to pick people up without their permission,' the girl remarks."
-can't take component parts rule	"'[The noun] [is-are] pretty well attached to [a random thing which is joined to the noun],' the girl remarks."
+can't take component parts rule	"'[The noun] [are] pretty well attached to [a random thing which is joined to the noun],' the girl remarks."
 can't take people's possessions rule	"'Just snatching it from [a random person who holds the noun]? That doesn't seem polite.'"
 can't take what you're inside rule	"'From inside?' the girl demands."
 can't take what's already taken rule	"[already done]"
@@ -2002,12 +2002,12 @@ can't enter closed containers rule	"[physical impossibility]"
 can't exit closed containers rule	"[physical impossibility]"
 can't drop yourself rule	"[physical impossibility]"
 can't drop what's already dropped rule	"[already done]"
-can't drop what's not held rule	"'[The noun] [is-are] already not in my possession,' replies the girl."
+can't drop what's not held rule	"'[The noun] [are] already not in my possession,' replies the girl."
 can't drop clothes being worn rule	"[salacious retort]"
 can't take your clothes rule	"[salacious retort]"
 can't take off dress rule	"[salacious retort]"
 can't put something on itself rule	"[physical impossibility]"
-can't put onto something being carried rule	"'I don't quite see how,' she says."
+[can't put onto something being carried rule	"'I don't quite see how,' she says."]
 can't put onto what's not a supporter rule	"'That's more of a balancing act than I'm up for, I'm afraid,' she says."
 can't put clothes being worn rule	"[salacious retort]"
 can't insert clothes being worn rule	"[salacious retort]"
@@ -2029,9 +2029,9 @@ Before asking the girl to try going nowhere:
 	say "'I'm not leaving you here by yourself,' she says. 'It could kill you.'" instead.
 	
 Rule for supplying a missing noun while going: 
-	change noun to outside.
+	now noun is outside.
 	
-Procedural rule: ignore the block vaguely going rule.
+The block vaguely going rule does nothing.
 
 To say already done:
 	repeat through Table of Esther's Bored Remarks
@@ -2080,7 +2080,7 @@ response
 "The girl taps her foot."
 "She purses her lips. 'I'm glad to help if I can, but we're going to have to stick to the realm of the remotely logical.'"
 
-Procedural rule: ignore the block giving rule; ignore the block showing rule; ignore the block smelling rule; ignore the block listening rule.
+The block giving rule does nothing. The block showing rule does nothing. The report smelling rule does nothing. The report listening rule does nothing.
 
 Carry out listening to something:
 	do nothing.
@@ -2229,7 +2229,7 @@ Report the girl trying examining the pamphlet for the first time:
 	
 A thing can be consumed or unconsumed. A thing is usually unconsumed. Carry out the creature trying eating something: now the noun is consumed.
 
-Satiety is a scene. Satiety begins when Getting handbag is happening and at least three things are consumed. When Satiety begins: remove the creature from play; say "At last the creature's grip on you slackens, and it relaxes and slides to the ground, almost immediately asleep.
+Satiety is a scene. Satiety begins when Getting handbag is happening and at least three things are consumed. When Satiety begins: now the creature is nowhere; say "At last the creature's grip on you slackens, and it relaxes and slides to the ground, almost immediately asleep.
 
 'How bizarre,' says the girl, approaching it and reaching out as though she wants to touch it.
 
@@ -2238,7 +2238,7 @@ Satiety is a scene. Satiety begins when Getting handbag is happening and at leas
 	
 Satiety ends when the time since Satiety began is 1 minute.
 
-Instead of doing something in the Underpass:
+Instead of doing something when the location is the Underpass:
 	if looking or examining, continue the action;
 	if dropping, continue the action;
 	if asking someone to try doing something, continue the action;
@@ -2273,7 +2273,7 @@ Instead of asking someone about something:
 		begin;
 			say "[The noun] has already told you [summary entry].";
 		otherwise;
-			change turn stamp entry to the turn count;
+			now turn stamp entry is the turn count;
 			say "[reply entry][paragraph break]";
 		end if;
 	otherwise;
@@ -2375,7 +2375,7 @@ Report the girl trying getting help: say "'Okay,' you say. 'I have an idea. I wi
 
 She brightens at this suggestion. 'Yes, of course, I'm sorry. Stupid of me.' [if the girl wears the heels]She takes off the heels again and[otherwise]Still stocking-footed, she[end if] heads back up the pathway briskly.
 
-Even so, it's an unpleasantly long wait until some animal-catchers arrive, suited up in protective suits, and shoot the creature with a tranquillizing dart. But you are free of it at last."; remove the creature from play.
+Even so, it's an unpleasantly long wait until some animal-catchers arrive, suited up in protective suits, and shoot the creature with a tranquillizing dart. But you are free of it at last."; now the creature is nowhere.
 
 Carry out getting help: say "Not likely to be much use just at the moment."
 
@@ -2438,7 +2438,7 @@ The maximum action stack depth is a number that varies. The maximum action stack
 First every turn rule: 
 	if Getting handbag is happening
 	begin;
-		change the action stack depth to 0; change the maximum action stack depth to 0; now every person is ignored; remove properties;
+		now the action stack depth is 0; now the maximum action stack depth is 0; now every person is ignored; remove properties;
 	end if.
 
 Report the girl trying opening something when the action stack depth is greater than 0:
@@ -2465,10 +2465,8 @@ Report the girl trying wearing something when the maximum action stack depth is 
 Carry out the girl trying throwing something at something:
 	move the noun to the location of the person asked.
 
-A procedural rule: 
-	if the person asked is not the player:
-		ignore the block throwing at rule; 
-		ignore the futile to throw things at inanimate objects rule.
+The block throwing at rule does nothing if the person asked is not the player.
+The futile to throw things at inanimate objects rule does nothing if the person asked is not the player.
 
 Report the girl trying throwing something at something: 
 	if the maximum action stack depth is greater than 0, say "[The person asked] throws it at [the second noun]. She misses by a mile." instead;
@@ -2505,7 +2503,10 @@ Rule for printing the name of a previously implicated person when the action sta
 Unsuccessful attempt by someone trying doing something when maximum action stack depth is greater than action stack depth: do nothing.
 
 To say optional comma:
-	if using the serial comma option, say ","; otherwise do nothing.
+	if the serial comma option is active:
+		say ",";
+	otherwise:
+		do nothing.
 
 [Here it becomes useful to change Inform's idea of whether the girl has a proper name, in order to suppress articles under some circumstances.]
 
@@ -2736,7 +2737,7 @@ After going to the Sidewalk:
 	move Esther to the location;
 	say "'Well. I'd best be off, then,' you say.
 	
-She walks out beside you, and you have a flash of déjà vu; or perhaps a sense that this is supposed to occur again in the future. You find yourself a little vexed by this sensation.";
+She walks out beside you, and you have a flash of dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©jÃƒÆ’Ã†â€™  vu; or perhaps a sense that this is supposed to occur again in the future. You find yourself a little vexed by this sensation.";
 	now Esther is dismissed.
 
 A person can be dismissed or engaged. A person is usually engaged.
@@ -2806,9 +2807,8 @@ Instead of asking the thugs about something:
 	
 Instead of answering someone that something: try asking the noun about it. Instead of telling someone about something: try asking the noun about it.
 	
-Procedural rule when Limo Ride is happening:
-	substitute the rapid advance time rule for the advance time rule. [* During this period of the game, we want a number of minutes to elapse between moments, like a montage of brief scenes in a movie. In addition to indicating this in the description, we have the clock advance at a different rate.]
-	
+The rapid advance time rule substitutes for the advance time rule when Limo Ride is happening. [* During this period of the game, we want a number of minutes to elapse between moments, like a montage of brief scenes in a movie. In addition to indicating this in the description, we have the clock advance at a different rate.]
+
 This is the rapid advance time rule:
 	increase the time of day by 15 minutes.
 
@@ -2856,7 +2856,7 @@ Rule for listing nondescript items of the Factory Floor:
 	list the contents of the Factory Floor, as a sentence, tersely, listing marked items only, including contents and giving brief inventory information;
 	say "." 
 
-The metal bar is a heavy thing in the Factory Floor. "A heavy bar of scrap metal sits on one of the newspaper piles, doing duty as a paperweight." Understand "paperweight" or "scrap" or "heavy" as the metal bar. The description is "You've heard of these vertical-integration plants that can turn a lump of iron ore into an engine block in less than 24 hours. The metal bar appears to come from an early-ish phase of that process, refined into heavy steel but not shaped like an auto part yet."
+The metal bar is in the Factory Floor. "A heavy bar of scrap metal sits on one of the newspaper piles, doing duty as a paperweight." The weight is heavy. Understand "paperweight" or "scrap" or "heavy" as the metal bar. The description is "You've heard of these vertical-integration plants that can turn a lump of iron ore into an engine block in less than 24 hours. The metal bar appears to come from an early-ish phase of that process, refined into heavy steel but not shaped like an auto part yet."
 
 The Foreman's Area is a room. "Elevated a few steps above the factory floor itself, this room must once have contained some office equipment or furniture: there are marks on the floor that suggest chairs and a desk, at the very least. But it has been cleared of all this."
  
@@ -2922,7 +2922,7 @@ There's a very long silence, one that goes on for five or ten minutes, maybe mor
 Finally the door opens and you are invited to emerge. Strong men grasp you firmly by the arms, and there is a sharp prick in the neck: drugs, presumably. You feel your legs going weak, then a somewhat confused and dizzy journey down a passageway. This ends in a steel-lined room that reminds you of the undertaker's, when your father died: the same cold slabs, some with people on them. 
 
 The last thing you see clearly is Esther on an adjacent table, fetal, with a bright metal hat fitted over her head.";
-		end the game saying "This can't be good";
+		end the story saying "This can't be good";
 	otherwise;
 		now the creature is known;
 		say "'I believe this one is from [the moon understood],' you announce loudly, for the benefit of the unseen men spying on you.
@@ -2957,8 +2957,10 @@ Before reading a command:
 	remove properties.
 
 After reading a command: 
-	while the player's command includes "the", cut the matched text; [* Largely an expedient so that more topics will match in conversation, even if the player has used articles.]
-	while the player's command includes "a", cut the matched text;
+	while the player's command includes "the":
+		cut the matched text; [* Largely an expedient so that more topics will match in conversation, even if the player has used articles.]
+	while the player's command includes "a":
+		cut the matched text;
 	if the player's command includes "[thugs]", replace the matched text with "thug";
 	if the player's command includes "[esther]", replace the matched text with "girl";
 	if the player's command includes "ask girl to", replace the matched text with "girl,";
@@ -3006,7 +3008,7 @@ After going to the Office:
 	say "From the strand dangling out of its mouth, you surmise the Thing has just eaten the hooked rug your mother gave you.
 	
 'Glorp?' it inquires."; 
-	end the game saying "To be continued";
+	end the story saying "To be continued";
 
 The window is scenery in the office. Understand "view" as the window. The description is "It is raining periodically and colder than it should be for this time of year; which had better clear up by this afternoon, because the Yankees are playing the Red Sox." Instead of searching the window, try examining the window. Before opening the window: say "In the normal course of things, windows on the fifty-first floor do not open.
 
@@ -3044,20 +3046,20 @@ Carry out researching in it about: say "You find nothing of interest in [the nou
 The setup rules is a rulebook.   
 
 A setup rule (this is the tongue rule):
-	if food of creature is meaty, change tongue of creature to "sharp carnivore teeth";
-	if food of creature is wood-pulpy, change tongue of creature to "a long raspy tongue";
-	if food of creature is earthly, change tongue of creature to "a round pink tongue";
-	if food of creature is textile, change tongue of creature to "a forked tongue".
+	if food of creature is meaty, now tongue of creature is "sharp carnivore teeth";
+	if food of creature is wood-pulpy, now tongue of creature is "a long raspy tongue";
+	if food of creature is earthly, now tongue of creature is "a round pink tongue";
+	if food of creature is textile, now tongue of creature is "a forked tongue".
 
 A setup rule (this is the claws rule):
-	if the moon of the creature is Europa, change the claw of the creature to "flipper-tip".
+	if the moon of the creature is Europa, now the claw of the creature is "flipper-tip".
 	
 A setup rule (this is the color-assignment rule):
-	if the creature lies nearer than Luna, change the color of the creature to a random color between red and yellow;
-	if the creature lies beyond Venus and creature lies nearer than Mars, change the color of the creature to a random color between yellow and cyan;
-	if the creature lies beyond Luna and creature lies nearer than Saturn, change the color of the creature to a random color between green and purple;
-	if the creature lies beyond  Jupiter, change the color of the creature to a random color between tan and grey;
-	if the moon of the creature is Triton, change the color of the creature to grey. 
+	if the creature lies nearer than Luna, now the color of the creature is a random color between red and yellow;
+	if the creature lies beyond Venus and creature lies nearer than Mars, now the color of the creature is a random color between yellow and cyan;
+	if the creature lies beyond Luna and creature lies nearer than Saturn, now the color of the creature is a random color between green and purple;
+	if the creature lies beyond  Jupiter, now the color of the creature is a random color between tan and grey;
+	if the moon of the creature is Triton, now the color of the creature is grey. 
 
 
 To say creature clothing:
@@ -3082,7 +3084,7 @@ Rule for writing a paragraph about the creature:
 	say paragraph break.
 	
 Before listing nondescript items:
-	if the creature is marked for listing, change the creature to not marked for listing.
+	if the creature is marked for listing, now the creature is not marked for listing.
 	
 Showing confusion at is an action applying to one thing.
 
@@ -3265,7 +3267,7 @@ Instead of asking a friendly smart creature about something:
 	
 Instead of asking a creature to try doing something: say "The creature either fails to understand your instruction or feels no need to obey."
 
-Procedural rule: ignore the can't take other people rule.
+The can't take other people rule does nothing.
 
 Instead of taking a hostile creature:
 	if the creature is poisoned, continue the action;
@@ -3394,7 +3396,7 @@ Instead of throwing something heavy at a slow creature:
 	say "You fling [the noun] at [the creature], and connect successfully with its head, to disastrous effect.
 	
 [if creature is red]Funny, it bleeds red[otherwise]Now you know what [color of creature] blood looks like[end if].";
-	end the game saying "You aren't supposed to harm them"
+	end the story saying "You aren't supposed to harm them"
 
 Instead of throwing something heavy at a moderate creature:
 	silently try dropping the noun;
@@ -3461,29 +3463,29 @@ To leave space:
 	say paragraph break; say paragraph break.
 
 To simplify the game: 
-	if the current level is beginner
-	begin;
+	if the current level is beginner:
 		let N be a random number between 1 and 2;
 		choose row N in the Table of Alien Characteristics;
-	otherwise;
+	otherwise:
 		choose a random row in the Table of Alien Characteristics; 
-		while the difficulty entry is not the current level, choose a random row in the Table of Alien Characteristics; 
-	end if;
-	change moon of the creature to moon entry;
-	change mood of the creature to attitude entry;
-	change the odor sensitivity of the creature to nostrils entry;
-	change metabolism of the creature to feed time entry;
-	change gravity of the creature to the mass entry;
-	change speed of the creature to the dexterity entry;
-	change carrying capacity of the creature to the arms entry;
-	if carrying capacity of the creature is 0, change carrying capacity of the creature to 2;
-	change food of the creature to taste entry;
-	change intelligence of the creature to brain entry; 
+		while the difficulty entry is not the current level:
+			choose a random row in the Table of Alien Characteristics; 
+	now moon of the creature is moon entry;
+	now mood of the creature is attitude entry;
+	now the odor sensitivity of the creature is nostrils entry;
+	now metabolism of the creature is feed time entry;
+	now gravity of the creature is the mass entry;
+	now speed of the creature is the dexterity entry;
+	now carrying capacity of the creature is the arms entry;
+	if carrying capacity of the creature is 0, now carrying capacity of the creature is 2;
+	now food of the creature is taste entry;
+	now intelligence of the creature is brain entry; 
 	follow the setup rules;
 	
-When play begins: change the right hand status line to "[time of day]"; 
-	change the time of day to 7:13 PM; 
-	change the left hand status line to "Friday, May 21, 1954";
+When play begins:
+	now the right hand status line is "[time of day]"; 
+	now the time of day is 7:13 PM; 
+	now the left hand status line is "Friday, May 21, 1954";
 	simplify the game.
 	 
 When play begins:
@@ -3521,7 +3523,7 @@ You open your mouth to deny involvement, but she doesn't wait to hear it; instea
 Getting handbag is a scene. Getting handbag begins when play begins. Getting handbag ends when the player does not carry the creature.
 
 When getting handbag ends:
-	remove the creature from play.  
+	now the creature is nowhere.  
 	
 Drinks is a scene. Drinks begins when Getting handbag ends. Drinks ends when Esther is dismissed.
 
@@ -3578,7 +3580,7 @@ Seeing but misinterpreting your appalled expression, she says, 'Really, it's all
 When martini comment ends:
 	repeat with item running through martini glasses
 	begin;
-		remove item from play;
+		now item is nowhere;
 	end repeat;
 	say "A woman comes and takes away the martini glasses. 'I think that's my cue,' says Esther.";
 	now Esther is dismissed.
@@ -3611,7 +3613,7 @@ This is evidently the wrong statement. There's a more complete silence than you'
 The men look at one another. 'In the car,' says the large one, suddenly, and someone gives you a shove at the middle of the back. 
 
 So much for going home and forgetting this entire incident.";
-	change the description of Esther to "She sits back, fingers laced, ankles crossed in ladylike fashion. She looks less frightened than you feel. Perhaps she hasn't encountered some of the things Army intelligence does when it feels threatened; it seems more and more likely that that is what you're up against.";
+	now the description of Esther is "She sits back, fingers laced, ankles crossed in ladylike fashion. She looks less frightened than you feel. Perhaps she hasn't encountered some of the things Army intelligence does when it feels threatened; it seems more and more likely that that is what you're up against.";
 	move Esther to the Limousine;
 	move thugs to the Limousine;
 	move the player to the Limousine.
@@ -3650,11 +3652,11 @@ Her eyes seek out yours, as though to ask whether you think they will really kil
 She is quiet then and doesn't add anything further for the whole of the trip."
 
 When Limo Ride ends: 
-	change the current level to easy;
+	now the current level is easy;
 	simplify the game;
 	let N be the metabolism of the creature;
 	let new time be the turn count - N;
-	change last feed time of the creature to new time;
+	now last feed time of the creature is new time;
 	move the rubber ball to the creature; 
 	increase the time of day by 12 minutes;
 	move the creature to the Foreman's Area;
@@ -3680,17 +3682,17 @@ Final teaser is a scene. Final teaser begins when Test ends.
 	
 When final teaser begins:
 	make scene break;
-	change the left hand status line to "Thursday, May 27, 1954";
-	change the time of day to 9:25 AM;
+	now the left hand status line is "Thursday, May 27, 1954";
+	now the time of day is 9:25 AM;
 	move the salami to the Hallway;
 	move the player to the Hallway;
 	repeat with item running through things carried by the player
 	begin;	
-		remove item from play;
+		now item is nowhere;
 	end repeat; [*  Because the player should not still be carrying the paint lid, the paper chart, etc., a week after the earlier scene.]
 	move the creature to the Office;
-	remove Joe Dimaggio from play; 
-	change the color of the creature to a random color;
+	now Joe Dimaggio is nowhere; 
+	now the color of the creature is a random color;
 	now every thing carried by the creature is in the Underpass;
 	now every thing worn by the creature is in the Underpass.
 
@@ -3701,7 +3703,7 @@ Section 3 - More optional events
 Refeeding is a scene. Refeeding begins when the current level is easy and refeeding has not happened and Test is happening and the player can see the creature and the creature is starving and the player has been in Foreman's Area for at least two turns. Refeeding ends when time since refeeding began is 1 minute.
 
 When refeeding begins:
-	change the last feed time of the creature to the turn count;
+	now the last feed time of the creature is the turn count;
 	say "The man in the dark suit slips in. 'Apologies for the interruption,' he says. 'I forgot to feed this critter before letting you get started.'
 	
 He offers the animal [if the food of the creature is earthly] a hamburger[otherwise]something [food of the creature][end if], which is instantly consumed. 'That should hold it for a bit,' he says, dusting his hands. 'But don't dawdle.' He goes out again with a friendly salute."
@@ -3742,8 +3744,8 @@ hint	used
 
 When Drinks begins:
 	choose row 1 in the Table of Hints;
-	change title entry to "What do I do now?";
-	change subtable entry to Table of Drink Hints.
+	now title entry is "What do I do now?";
+	now subtable entry is Table of Drink Hints.
 	
 Table of Drink Hints
 hint	used
@@ -3753,8 +3755,8 @@ hint	used
 
 When Limo Ride begins:
 	choose row 1 in the Table of Hints;
-	change title entry to "How do I get out?";
-	change subtable entry to Table of Limo Hints.
+	now title entry is "How do I get out?";
+	now subtable entry is Table of Limo Hints.
 	
 Table of Limo Hints
 hint	used
@@ -3785,7 +3787,7 @@ hint	used
 
 When play begins:
 	choose row 1 in the Table of Basic Help Options;
-	change description entry to "[story description]".
+	now description entry is "[story description]".
 	
 Table of Basic Help Options (continued)
 title	subtable	description	toggle
