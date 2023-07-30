@@ -1,8 +1,6 @@
 "When in Rome 1: Accounting for Taste" by Emily Short
 
-Include (- Serial "201217"; -).
-
-The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 4. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
+The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 5. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
 
 The last few years, you've settled into a routine. You work at the bank, you go home, you occasionally have dinner with your mother. It is all acceptably ordinary.
 
@@ -1135,9 +1133,9 @@ Report sneaking something under something:
 	say "You tuck [the noun] under [the second noun]."
 
 
-Launching us is an action applying to nothing.
+Launching [us] is an action applying to nothing.
 
-Before a hostile person trying launching us: act creepy instead.
+Before a hostile person trying launching [us]: act creepy instead.
 	
 To act creepy:
 	if the person asked is visible, say "[The person asked] looks at you for a long time through bright eyes and then smiles very pleasantly.";
@@ -1430,7 +1428,7 @@ A creature behavior rule (this is the contrary creature rule):
 	end if.
 	
 A creature behavior rule (this is the evil creature rule): 
-	if the creature is secretive and the creature is active and the creature is smart, try the creature trying launching us.
+	if the creature is secretive and the creature is active and the creature is smart, try the creature trying launching [us].
 
 A creature behavior rule (this is the acquisitive creature environment rule):
 	if the creature is not visible, make no decision;
@@ -1475,7 +1473,7 @@ A creature behavior rule (this is the creature escape rule):
 				now the creature is passive;
 	
 A creature behavior rule:
-	if the creature is hostile and the creature is active and the creature is smart, try the creature trying launching us.
+	if the creature is hostile and the creature is active and the creature is smart, try the creature trying launching [us].
 	
 A creature behavior rule (this is the hostile action rule):
 	if the creature is active and the creature is hostile
