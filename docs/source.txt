@@ -1,6 +1,6 @@
 "When in Rome 1: Accounting for Taste" by Emily Short
 
-The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 5. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
+The story genre is "Science Fiction". The story headline is "A Puzzle Game in Five Brief Episodes". The release number is 4. The story creation year is 2006. The story description is "Manhattan, May, 1954. 
 
 The last few years, you've settled into a routine. You work at the bank, you go home, you occasionally have dinner with your mother. It is all acceptably ordinary.
 
